@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingliz tili B2 · Uy vazifasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: friendly homework workbook for Uzbek learners, calm and encouraging
+   IDEA: a coursebook's unit pages turned into tick-off exercise cards
+   PICTURE: the unit list itself, each card with its own colour and progress bar
+   COLOUR and TYPE: book-blue header, white cards, one colour per unit; Nunito
+   LAYOUT: single 760px column, tabs, cards; stacks naturally on phones */
+:root{color-scheme:light dark;
+--bg:light-dark(#f3f5fa,#0f1320);--card:light-dark(#fff,#181e2e);--ink:light-dark(#1d2433,#e7ebf5);
+--mute:light-dark(#667085,#9aa3b8);--line:light-dark(#e3e7f0,#2a3248);--blue:#2f6fdc;--blue2:light-dark(#e8effc,#1d2a48);
+--ok:#16a34a;--okbg:light-dark(#e8f7ee,#123222);--bad:#dc2626;--badbg:light-dark(#fdecec,#3a1717)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Nunito,system-ui,sans-serif;overflow-x:clip}
+header{background:var(--blue);color:#fff;padding:26px max(5vw,16px) 28px}
+.wrap{max-width:760px;margin:0 auto}
+header h1{margin:0;font-size:clamp(24px,4.4vw,32px);line-height:1.15;font-weight:800;text-wrap:balance}
+header h1 small{font-weight:600;font-size:.62em;opacity:.9}
+header p{margin:6px 0 0;opacity:.92}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:99px;padding:8px 14px;font:700 14px Nunito,sans-serif;cursor:pointer;min-height:36px}
+.pill:hover{background:rgba(255,255,255,.3)}
+main{max-width:760px;margin:0 auto;padding:18px 16px 40px}
+.card{background:var(--card);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 1px 3px rgba(20,30,60,.08)}
+label.h{font-weight:700;display:block;margin-bottom:8px}
+input[type=text]{width:100%;font:16px Nunito,sans-serif;padding:11px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);min-height:46px}
+input[type=text]:focus{outline:none;border-color:var(--blue)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:14px 0 8px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:9px;transition:width .4s}
+.meta{color:var(--mute);font-size:14px}
+.unit{display:block;width:100%;text-align:left;border:0;cursor:pointer;font:inherit;color:inherit;border-left:7px solid var(--c);position:relative}
+.unit:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(20,30,60,.12)}
+.unit .k{color:var(--c);font-weight:800;font-size:13px}
+.unit h2{margin:4px 0 6px;font-size:21px;line-height:1.25}
+.unit h2 span,h1 .uz{font-weight:600;color:var(--mute);font-size:.8em}
+h1 .uz{color:#fff;opacity:.85}
+.unit .tp{color:var(--mute);font-size:14px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:560px){.tabs{grid-template-columns:1fr 1fr}}
+.txt p{margin:0 0 12px;font-size:17px;line-height:1.7}
+.gl{border:0;background:none;color:inherit;font:inherit;padding:0;border-bottom:2px dotted var(--blue);cursor:pointer}
+.gl small{display:none;font-size:13px;color:var(--blue);font-weight:700;margin-left:4px}
+.gl.on small{display:inline}
+details summary{cursor:pointer;color:var(--blue);font-weight:800;margin-top:12px}
+details p{color:var(--mute);font-size:15px}
+.tf{display:flex;gap:8px}.tf .opt{flex:0 0 auto;min-width:100px;text-align:center}
+h2.wt{font-size:22px;margin:4px 0 14px;line-height:1.25}h2.wt span{display:block;font-size:15px;color:var(--mute);font-weight:600}
+.errs{display:flex;flex-wrap:wrap;gap:6px 4px;margin-bottom:12px}
+.et{border:2px solid transparent;background:none;color:var(--ink);border-radius:8px;padding:4px 6px;font:17px Nunito,sans-serif;cursor:pointer;text-align:left}
+.et:hover{border-color:var(--line)}
+.et.sel{border-color:var(--blue);background:var(--blue2)}
+.et .fx{display:block;font-size:13px;color:var(--ok);font-weight:800}
+.model{background:light-dark(#f7f6f1,#1d2232);border-left:4px solid var(--blue);border-radius:10px;padding:12px 16px}
+.model b{color:var(--blue)}.model p{margin:4px 0}
+.ph{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.ph span{background:var(--blue2);border-radius:8px;padding:4px 10px;font-size:14px}
+textarea{width:100%;min-height:220px;font:16px/1.6 Nunito,sans-serif;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);resize:vertical}
+textarea:focus{outline:none;border-color:var(--blue)}
+.chk{list-style:none;padding:0;margin:10px 0}.chk li{padding:3px 0;color:var(--mute)}.chk li.y{color:var(--ok);font-weight:700}
+
+.tab{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:10px;font:800 15px Nunito,sans-serif;cursor:pointer;min-height:44px}
+.tab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+h3{margin:0 0 2px;font-size:19px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+h3 .st{font-size:13px;color:var(--mute);font-weight:700;white-space:nowrap}
+h3 .st.done{color:var(--ok)}
+.ins{font-style:italic;color:var(--mute);font-size:14px;margin-bottom:12px}
+.rule{background:var(--blue2);border-radius:10px;padding:12px 14px;margin-bottom:6px;font-size:15px}
+.bank{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.w{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 8px;cursor:pointer;text-align:center;font:inherit;min-height:64px}
+.w b{display:block;font-size:16px;line-height:1.25}.w span{font-size:13px;color:var(--mute);line-height:1.3;display:block;margin-top:2px}
+.w:hover{border-color:var(--blue)}
+.q{border-top:1px solid var(--line);padding:12px 0 4px}
+.q .p{margin-bottom:8px}.q .p b{color:var(--blue);margin-right:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row input{flex:1 1 180px}
+.btn{border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:10px;padding:0 16px;font:800 15px Nunito,sans-serif;cursor:pointer;min-height:46px}
+.btn.o{background:var(--card);color:var(--blue)}
+.opts{display:grid;gap:8px}
+.opt{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:11px 14px;text-align:left;font:16px Nunito,sans-serif;cursor:pointer;min-height:46px}
+.opt:hover{border-color:var(--blue)}
+.ok{border-color:var(--ok)!important;background:var(--okbg)!important}
+.bad{border-color:var(--bad)!important;background:var(--badbg)!important}
+.fb{font-size:14px;margin-top:6px;min-height:0}.fb.g{color:var(--ok)}.fb.r{color:var(--bad)}
+.stage{font-weight:800;font-size:13px;color:var(--mute);margin:14px 0 6px}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mt div{display:grid;gap:8px;align-content:start}
+.mb{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 10px;font:15px Nunito,sans-serif;cursor:pointer;min-height:44px;text-align:center}
+.mb.sel{border-color:var(--blue);background:var(--blue2)}
+.mb.ok{opacity:.55;cursor:default}
+.zone{min-height:50px;border:2px dashed var(--line);border-radius:10px;padding:6px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tok{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 11px;font:16px Nunito,sans-serif;cursor:pointer;min-height:40px}
+.zone .tok{border-color:var(--blue);background:var(--blue2)}
+.tok.used{visibility:hidden}
+.next{display:block;width:100%;margin-top:6px}
+footer{text-align:center;color:var(--mute);font-size:14px;padding:0 16px 30px}
+.reset{background:none;border:0;color:var(--mute);text-decoration:underline;cursor:pointer;font:14px Nunito,sans-serif;margin-top:6px}
+@media(max-width:480px){.row input{flex-basis:100%}.q .row .btn{flex:1}.mt{gap:6px}.mb{font-size:14px;padding:8px 6px}.bank{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap" id="head"></div></header>
+<main id="app"></main>
+<footer>«Navigate B2 Upper-intermediate» (Oxford) asosida</footer>
+<script>
+// W: "english|o‘zbekcha;..."  G: gap sentences [sentence, answer]
+// gr: [{t:title, r:rule, f:[[q, answers(|), hint]], m:[[prompt, correct, wrong, wrong]]}]
+// b: [[uzbek, english sentence]]
+const UNITS = [
+{n:1,t:"Communication",uz:"Muloqot",
+v:"conversation · written communication · verbs + prepositions",
+g:"question types · present perfect simple & continuous",
+W:"have a row|janjallashmoq;put someone at ease|kimnidir xotirjam qilmoq;listen enthusiastically|qiziqish bilan tinglamoq;establish shared interests|umumiy qiziqishlarni topmoq;have a misunderstanding|tushunmovchilikka uchramoq;awkward silence|noqulay jimlik;put your foot in it|noo‘rin gapirib qo‘ymoq;make small talk|yengil suhbat qilmoq;make a good impression|yaxshi taassurot qoldirmoq;tell an entertaining story|qiziqarli hikoya aytib bermoq;offend|xafa qilmoq, ranjitmoq;dominate the conversation|suhbatni egallab olmoq;hit it off|darhol til topishmoq;confidential|maxfiy;copy somebody in|nusxasini yubormoq (cc);cross out|chizib tashlamoq;delete|o‘chirmoq;emoticon|smaylik, emotikon;handwriting|qo‘lyozma, husnixat;handwritten|qo‘lda yozilgan;inbox|kiruvchi xatlar;instant|bir zumda bo‘ladigan;postage stamp|pochta markasi;punctuation|tinish belgilari;stationery|kanselyariya buyumlari;correspondence|yozishmalar;gesture|imo-ishora;interrupt|gapini bo‘lmoq;consist of|...dan iborat bo‘lmoq;disapprove of|ma’qullamaslik;contribute to|hissa qo‘shmoq;result in|...ga olib kelmoq;ban from|...ni taqiqlamoq;depend on|...ga bog‘liq bo‘lmoq",
+G:[["Henry Ford ___ his workers from whistling.","banned"],["In Russia, whistling indoors can ___ in bad luck.","result"],["Silbo ___ of four vowels and four consonants.","consists"],["My friend Marc is very good at ___ people at ease.","putting"],["I don’t like the way she always ___ the conversation.","dominates"],["Tell me about a person you hit it ___ with as soon as you met them.","off"]],
+gr:[{t:"Different question types",r:"<b>Subject questions:</b> who/what/which gap egasi bo‘lsa, <b>do/did</b> ishlatilmaydi — <i>Who said that?</i> · <b>Indirect questions:</b> Do you know… / Could you tell me… dan keyin oddiy tartib — <i>Do you know where he <b>lives</b>?</i> · <b>Predlog</b> savol oxirida keladi — <i>What are you talking <b>about</b>?</i>",
+f:[["Who ___ (tell) you the news yesterday?","told","Subject question — did kerak emas"],["Do you know where the station ___? (be)","is","Indirect question — oddiy tartib"],["Could you tell me what time it ___? (be)","is","Indirect question"],["What are you looking ___? (predlog)","at|for","Predlog oxirida"],["Which of these languages ___ (sound) the most beautiful?","sounds","Subject question, present simple"]],
+m:[["Kim sizga qo‘ng‘iroq qildi?","Who called you?","Who did call you?","Whom called you?"],["Uning qayerda yashashini bilasizmi?","Do you know where she lives?","Do you know where does she live?","Do you know where lives she?"],["Qaysi gap to‘g‘ri?","What are you worried about?","About what you are worried?","What you are worried about?"]]},
+{t:"Present perfect simple & continuous",r:"<b>have/has + V3</b> (simple): natija, necha marta, holat fe’llari (be, have, know) — <i>I’ve written two letters.</i> · <b>have/has been + V-ing</b> (continuous): davomiylik, yaqin vaqtdagi takroriy harakat — <i>I’ve been writing all morning.</i> · <b>for</b> (davomida) · <b>since</b> (…dan beri)",
+f:[["Shaun Usher ___ (collect) letters since 2009.","has collected|has been collecting","Ikkalasi ham mumkin"],["I ___ (know) her for ten years.","have known|'ve known","know — holat fe’li"],["You look tired. Have you ___ (work) all day?","been working","all day — davomiylik"],["He has just ___ (release) a new book.","released","just — natija"],["We’ve lived here ___ 2015.","since","Aniq boshlanish nuqtasi"]],
+m:[["Men bu kitobni ikki marta o‘qidim.","I’ve read this book twice.","I’ve been reading this book twice.","I read this book since twice."],["Ertalabdan beri yomg‘ir yog‘yapti.","It’s been raining since this morning.","It rains since this morning.","It’s raining for this morning."],["Qaysi gap NOTO‘G‘RI?","I’ve been knowing him for years.","I’ve known him for years.","She’s been working here since May."]]}],
+b:[["Siz bu yerda qancha vaqtdan beri kutyapsiz?","How long have you been waiting here?"],["U qayerdan ekanini bilasizmi?","Do you know where he comes from?"],["Nima haqida gaplashyapsizlar?","What are you talking about?"]]},
+
+{n:2,t:"Escape",uz:"Sarguzasht",
+v:"travel and adventure · adjectives of feeling · North American English",
+g:"talking about past events · past perfect forms",
+W:"step out of your comfort zone|odatiy holatdan chiqmoq;rough it|qulayliklarsiz yashamoq;soak up the atmosphere|muhitdan bahramand bo‘lmoq;out of season|mavsumdan tashqari;touristy|sayyohlar gavjum;remote|chekka, olis;stunning|hayratlanarli go‘zal;wildlife|yovvoyi tabiat;scenery|manzara;destination|borish manzili;trek|uzoq piyoda sayohat;encounter|kutilmagan uchrashuv;feat|qahramonlik, jasorat;legacy|meros;courage|jasorat;anxious|xavotirli;bitter|alamli;delighted|juda xursand;disorientated|gangib qolgan;furious|qattiq g‘azablangan;hurt|ranjigan;miserable|juda baxtsiz;petrified|qo‘rquvdan qotgan;puzzled|hayron;relieved|yengil tortgan;tense|asabiy, tarang;terrified|dahshatga tushgan;luggage|yuk, bagaj (AmE: baggage);pavement|piyodalar yo‘lagi (AmE: sidewalk);queue|navbat (AmE: line);lorry|yuk mashinasi (AmE: truck);petrol|benzin (AmE: gas);rubbish|axlat (AmE: garbage);return ticket|borib-kelish chiptasi (AmE: round-trip)",
+G:[["Kira Salak went on a solo jungle ___ through Papua New Guinea.","trek"],["The views from Machu Picchu are absolutely ___.","stunning"],["He was ___ because he had found his passport.","relieved"],["Henry Brown must have been ___ when his family was sold.","furious"],["It gets touristy in summer, so it’s best to go out of ___.","season"],["Do you ever step out of your comfort ___?","zone"]],
+gr:[{t:"Talking about past events",r:"<b>Past simple</b> — asosiy voqealar: <i>She set off alone.</i> · <b>Past continuous</b> (was/were + V-ing) — fon, davom etayotgan harakat: <i>She was paddling up the river when…</i> · <b>Past perfect</b> (had + V3) — boshqa o‘tgan voqeadan OLDIN: <i>When we arrived, the boat had left.</i>",
+f:[["She ___ (paddle) up the river when she saw a crocodile.","was paddling","Fon harakat"],["When we got to the station, the train had already ___ (leave).","left","had + V3"],["Mary Kingsley ___ (set) off alone along the river.","set","Asosiy voqea, past simple"],["While I ___ (wander) around the old town, I met a friend.","was wandering","While + past continuous"],["I couldn’t get in because I ___ (lose) my key.","had lost","Oldinroq bo‘lgan voqea"]],
+m:[["Biz kelganimizda film boshlanib bo‘lgan edi.","When we arrived, the film had started.","When we arrived, the film was starting.","When we had arrived, the film started."],["U kitob o‘qiyotgan edi, telefon jiringladi.","She was reading when the phone rang.","She read when the phone was ringing.","She had read when the phone was ring."],["Qaysi gap NOTO‘G‘RI?","I was knowing the answer.","I knew the answer.","I had known her for years."]]},
+{t:"Past perfect simple & continuous",r:"<b>had + V3</b> — tugagan harakat yoki natija: <i>She had lost her passport.</i> · <b>had been + V-ing</b> — oldin davom etib kelgan harakat (ko‘pincha sabab): <i>He was tired because he had been driving all night.</i> · Holat fe’llari (be, know, have) bilan faqat <b>simple</b>.",
+f:[["He was exhausted because he ___ (drive) all night.","had been driving","Davom etgan harakat"],["She was in a panic because she ___ (lose) her passport.","had lost","Natija"],["He ___ (have) the car for just a month when someone crashed into it.","had had","have — holat"],["The alarm didn’t go off because I ___ (forget) to set it.","had forgotten","Bir martalik harakat"],["My eyes were hurting because I ___ (stare) at the screen all day.","had been staring","all day — davomiylik"]],
+m:[["Etiklari loy edi, chunki u o‘rmonda yurgan edi.","Her boots were muddy because she had been walking in the woods.","Her boots were muddy because she has been walking in the woods.","Her boots were muddy because she was walk in the woods."],["Qaysi gap to‘g‘ri?","I had known him for years before we worked together.","I had been knowing him for years before we worked together.","I have known him for years before we worked together."],["Ular qancha vaqt kutishgan edi?","How long had they been waiting?","How long have they been waited?","How long they had been waiting?"]]}],
+b:[["U kun bo‘yi ishlagani uchun charchagan edi.","She was tired because she had been working all day."],["Biz yetib kelganimizda avtobus ketib qolgan edi.","When we arrived the bus had left."],["Men pasportimni yo‘qotib qo‘ygan edim.","I had lost my passport."]]},
+
+{n:3,t:"Invest",uz:"Sarmoya",
+v:"learning and knowledge · collocations with time and money · noun suffixes",
+g:"talking about the future (1) · talking about the future (2)",
+W:"know your stuff|o‘z ishini yaxshi bilmoq;pick something up|o‘rganib olmoq;proficient|mohir, malakali;think ahead|oldindan o‘ylamoq;stick at something|qiyin bo‘lsa ham davom ettirmoq;give up|voz kechmoq;get on|ishda oldinga ketmoq;drop out|o‘qishni tashlab ketmoq;lose touch|aloqani yo‘qotmoq;make the most of|imkondan to‘liq foydalanmoq;kill time|vaqt o‘tkazmoq (zerikmaslik uchun);fritter away|behuda sovurmoq;while away|vaqtni bekor o‘tkazmoq;waste|isrof qilmoq;set aside|ajratib qo‘ymoq;run out of|tugab qolmoq;have time to spare|ortiqcha vaqti bo‘lmoq;be short of money|pul yetishmasligi;take your time|shoshilmaslik;get your money’s worth|pulingizga arzigulik narsa olmoq;throw your money around|pulni sochmoq;invest|sarmoya kiritmoq;achievement|yutuq;freedom|erkinlik;generosity|saxiylik;inheritance|meros;civilization|sivilizatsiya;significance|ahamiyat;preference|afzal ko‘rish;enjoyment|zavq;curiosity|qiziquvchanlik;wisdom|donolik;bravery|jasurlik;golden opportunity|ajoyib imkoniyat;have a heart of gold|juda mehribon bo‘lmoq",
+G:[["Winning a gold medal is quite an ___.","achievement"],["Why do we ___ time playing games on our phones?","kill"],["I still have a lot to do and I’m running ___ of time.","out"],["It is important to set ___ time to plan for your future.","aside"],["Employers need to see that you can stick ___ something.","at"],["If you know your ___, employers don’t care about your degree.","stuff"]],
+gr:[{t:"Talking about the future (1)",r:"<b>will</b> — bashorat, to‘satdan qaror, va’da: <i>I’ll help you.</i> · <b>be going to</b> — reja/niyat, dalilga asoslangan bashorat: <i>Look at those clouds – it’s going to rain.</i> · <b>Present continuous</b> — kelishilgan reja: <i>I’m meeting Ali at six.</i> · <b>Present simple</b> — jadval: <i>The train leaves at 8.</i>",
+f:[["Look at those clouds! It ___ (rain).","is going to rain|'s going to rain","Dalil bor"],["I’m sure you ___ (pass) the exam.","will pass|'ll pass","Bashorat"],["I ___ (meet) my adviser tomorrow at 10 – it’s in my diary.","am meeting|'m meeting","Kelishilgan reja"],["The course ___ (start) on 1 September.","starts","Jadval"],["A: I’m thirsty. B: I ___ (get) you some water.","will get|'ll get","To‘satdan qaror"]],
+m:[["Kelasi yil universitetga hujjat topshirmoqchiman.","I’m going to apply to university next year.","I apply to university next year.","I’ll applying to university next year."],["Poyezd soat 7 da jo‘naydi (jadval).","The train leaves at 7.","The train will leaving at 7.","The train is leave at 7."],["Telefon jiringlayapti. — Men olaman! (hozirgi qaror)","I’ll answer it.","I answer it.","I’m answer it."]]},
+{t:"Talking about the future (2)",r:"<b>Future continuous</b> (will be + V-ing) — kelajakda ma’lum paytda davom etayotgan harakat: <i>This time next year I’ll be working in London.</i> · <b>Future perfect</b> (will have + V3) — ma’lum paytgacha tugagan bo‘ladi: <i>By 2030 I’ll have finished my degree.</i> · <b>by</b> = …gacha",
+f:[["This time tomorrow I ___ (lie) on a beach.","will be lying|'ll be lying","Davom etayotgan bo‘ladi"],["By the age of sixty, one in three adults ___ (develop) diabetes.","will have developed","by — …gacha tugaydi"],["In 2030, people ___ (go) on virtual reality holidays.","will be going","Kelajakdagi jarayon"],["By next June, I ___ (finish) my course.","will have finished|'ll have finished","by + vaqt"],["Don’t call at 8 – we ___ (have) dinner.","will be having|'ll be having","O‘sha paytda davom etadi"]],
+m:[["2030-yilga kelib men uy sotib olgan bo‘laman.","By 2030, I’ll have bought a house.","By 2030, I’ll be buy a house.","By 2030, I’ve bought a house."],["Ertaga shu paytda men samolyotda uchayotgan bo‘laman.","This time tomorrow I’ll be flying.","This time tomorrow I’ll have fly.","This time tomorrow I fly."],["Qaysi gap NOTO‘G‘RI?","By Friday I will finished the report.","By Friday I will have finished the report.","On Friday I’ll be working from home."]]}],
+b:[["Kelasi yil shu paytda men Londonda ishlayotgan bo‘laman.","This time next year I will be working in London."],["Men ertaga shifokor bilan uchrashaman.","I am meeting the doctor tomorrow."],["Vaqtingizni behuda sovurmang.","Don't fritter away your time."]]},
+
+{n:4,t:"Creativity",uz:"Ijodkorlik",
+v:"how things work · describing impressions · easily confused words",
+g:"the passive · causative have and get",
+W:"attach|biriktirmoq;control|boshqarmoq;design|loyihalamoq;fix|mahkamlamoq, tuzatmoq;generate|ishlab chiqarmoq (energiya);measure|o‘lchamoq;monitor|kuzatib bormoq;place|joylashtirmoq;protect|himoya qilmoq;recharge|qayta zaryadlamoq;reduce|kamaytirmoq;treat|davolamoq;conventional|an’anaviy;innovative|innovatsion;inventive|ixtirochi, topqir;odd|odatdan tashqari, g‘alati;practical|amaliy;remarkable|ajoyib, e’tiborli;silly|bema’ni;striking|ko‘zga tashlanadigan;user-friendly|foydalanishga qulay;weird|g‘aroyib, sirli;childish|bolalarcha;unimaginative|tasavvursiz;functional|funksional;impressive|ta’sirli;affect|ta’sir qilmoq (fe’l);effect|ta’sir, natija (ot);advise|maslahat bermoq (fe’l);advice|maslahat (ot);specially|maxsus (maqsadda);especially|ayniqsa;lose|yo‘qotmoq;loose|bo‘sh, keng",
+G:[["Farmers in Australia are often ___ by drought.","affected"],["The energy can be used to ___ batteries.","recharge"],["Suncayr ___ you from sunburn.","protects"],["A knitted cover for a bus may look ___ to some people.","weird"],["Magda Sayek has ___ designed a cover for a bus.","specially"],["The knitted covers are usually quite ___, so they’re easy to fix.","loose"]],
+gr:[{t:"The passive",r:"<b>be + V3</b>. Present: <i>is made</i> · Past: <i>was invented</i> · Present perfect: <i>has been developed</i> · Future: <i>will be taken</i> · Modal: <i>can be used</i> · Bajaruvchi — <b>by</b>: <i>It was designed by Linacre.</i> Kim qilgani muhim bo‘lmaganda ishlatiladi.",
+f:[["Linacre ___ (inspire) by Australia’s worst drought. (past)","was inspired","was + V3"],["The idea ___ (give) to him by the Namib beetle. (past)","was given","was + V3"],["Up until now, the system ___ (develop) in his mum’s backyard.","has been developed","has been + V3"],["In the future, it ___ (take up) to a more industrial level.","will be taken up","will be + V3"],["The sounds can ___ (control) by twisting the Sono.","be controlled","can be + V3"]],
+m:[["Bu ko‘prik 1990-yilda qurilgan.","This bridge was built in 1990.","This bridge built in 1990.","This bridge was build in 1990."],["Yangi model hozir sinovdan o‘tkazilmoqda.","The new model is being tested now.","The new model is testing now.","The new model is been tested now."],["Qaysi gap NOTO‘G‘RI?","The letter has sent yesterday.","The letter was sent yesterday.","The letters will be sent tomorrow."]]},
+{t:"Causative have and get",r:"<b>have/get + narsa + V3</b> — ishni boshqa odamga qildirmoq: <i>I had my car fixed.</i> (mashinamni tuzattirdim) · <b>get</b> biroz norasmiy: <i>I’m getting my hair cut tomorrow.</i> · Istalgan zamonda: <i>She’s had her office redesigned.</i>",
+f:[["At Google, employees can get their dry-cleaning ___ (do) for free.","done","V3"],["I’m having my hair ___ (cut) tomorrow.","cut","V3"],["We ___ our house painted last year. (have)","had","Past simple"],["You should get your eyes ___ (test).","tested","V3"],["She has just had her phone ___ (repair).","repaired","V3"]],
+m:[["Men mashinamni tuzattirdim.","I had my car fixed.","I fixed my car.","I had fixed my car."],["Sochingizni qayerda oldirasiz?","Where do you get your hair cut?","Where do you get cut your hair?","Where do you get your hair cutting?"],["Qaysi gap to‘g‘ri?","We’re having a new kitchen fitted.","We’re having fitted a new kitchen.","We’re having a new kitchen fit."]]}],
+b:[["Bu qurilma 2015-yilda ixtiro qilingan.","This device was invented in 2015."],["Men telefonimni tuzattirdim.","I had my phone repaired."],["Bu juda ta’sirli ko‘rinadi.","It looks really impressive."]]},
+{n:5,t:"Mind",uz:"Ong va xotira",
+v:"childhood memories · emotions and behaviour · phrasal verbs with out and up",
+g:"verbs with -ing and infinitive · other uses of -ing and infinitive with to",
+W:"vaguely remember|noaniq eslamoq;just about remember|zo‘rg‘a eslamoq;recall|eslamoq;vivid memory|yorqin xotira;no recollection|hech esda yo‘q;fade|xiralashmoq, so‘nmoq;bored to death|o‘lgudek zerikkan;fed up with|...dan bezgan;dull|zerikarli;repetitive|bir xil takrorlanadigan;lose concentration|diqqatni yo‘qotmoq;your mind wanders|xayolingiz chalg‘iydi;can’t sit still|tinch o‘tira olmaslik;zone out|xayolga berilib ketmoq;unwind|dam olmoq, bo‘shashmoq;desperate|juda qattiq istagan;capable of|...ga qodir;trapped|qamalib qolgan;emotion|his-tuyg‘u;work out|hal qilmoq, tushunib yetmoq;carry out|amalga oshirmoq;pop up|to‘satdan paydo bo‘lmoq;come up with|(g‘oya) o‘ylab topmoq;set up|tashkil qilmoq;dream up|o‘ylab chiqarmoq;find out|bilib olmoq;die out|yo‘q bo‘lib ketmoq;phase out|bosqichma-bosqich to‘xtatmoq;turn out|ma’lum bo‘lmoq;turn up|kelib qolmoq;sort out|hal qilmoq;make up|to‘qib chiqarmoq",
+G:[["My memory of it has begun to ___.","fade"],["I’m tired ___ doing the same thing every day.","of"],["Psychologists came up ___ the idea.","with"],["Have you ever run ___ of petrol?","out"],["I can ___ remember going to see that film.","vaguely"],["Do you mind if friends turn ___ without calling first?","up"]],
+gr:[{t:"Verbs with -ing and infinitive",r:"<b>+ -ing:</b> avoid, enjoy, finish, mind, imagine, keep, suggest — <i>I avoid driving.</i> · <b>+ to:</b> agree, decide, hope, manage, pretend, refuse — <i>I pretended to be excited.</i> · <b>+ obj + to:</b> tell, want, ask, advise — <i>He told us to sit up.</i> · <b>+ obj + inf (to siz):</b> make, let, help — <i>They made me wait.</i> · Ma’no o‘zgaradi: remember / forget / stop / try",
+f:[["I pretended ___ (be) excited.","to be","pretend + to"],["The other children had to avoid ___ (ride) over me.","riding","avoid + -ing"],["The teacher told us ___ (sit) up straight.","to sit","tell + obj + to"],["My parents made me ___ (wear) a helmet.","wear","make + obj + inf"],["I’ll never forget ___ (see) the sea for the first time.","seeing","O‘tmish xotirasi — -ing"]],
+m:[["Non olishni unutib qo‘ydim.","I forgot to buy bread.","I forgot buying bread.","I forgot buy bread."],["U menga yordam berishga rozi bo‘ldi.","She agreed to help me.","She agreed helping me.","She agreed me to help."],["Qaysi gap NOTO‘G‘RI?","Do you mind to open the window?","Do you mind opening the window?","Let me help you."]]},
+{t:"Other uses of -ing and infinitive with to",r:"<b>-ing:</b> predlogdan keyin (tired of, keen on, after, without) — <i>I’m tired of waiting.</i> · gap egasi sifatida — <i>Swimming is fun.</i> · <b>to + inf:</b> ba’zi otlardan keyin (opportunity, chance) — <i>a chance to relax</i> · nothing/something + to — <i>nothing to do</i> · sifat + to — <i>easy to learn</i> · maqsad — <i>I came here to study.</i>",
+f:[["I’m fed up with ___ (wait).","waiting","Predlog + -ing"],["After ___ (finish) school, I went to university.","finishing","after + -ing"],["There’s nothing ___ (do) in this town.","to do","nothing + to"],["We should welcome the opportunity ___ (be) bored.","to be","opportunity + to"],["___ (swim) is good for your health.","Swimming","Gap egasi — -ing"]],
+m:[["Men uni ko‘rish uchun keldim.","I came to see him.","I came for see him.","I came for seeing him."],["U xorijda ishlashga qiziqadi.","She’s keen on working abroad.","She’s keen on work abroad.","She’s keen to working abroad."],["Qaysi gap to‘g‘ri?","Are we capable of doing nothing?","Are we capable to doing nothing?","Are we capable of do nothing?"]]}],
+b:[["Har kuni bir xil ishni qilishdan charchadim.","I'm tired of doing the same thing every day."],["U menga erta kelishimni aytdi.","She told me to come early."],["Biz yangi g‘oya o‘ylab topdik.","We came up with a new idea."]]},
+
+{n:6,t:"Community",uz:"Jamiyat",
+v:"cultures and communities · housing and living · high-frequency verb collocations",
+g:"articles · determiners and quantifiers",
+W:"community|jamoa, hamjamiyat;immigrant|muhojir;settler|ko‘chib kelgan aholi;descendant|avlod;ancestor|ajdod;citizen|fuqaro;custom|urf-odat;ceremony|marosim;festival|bayram, festival;parade|parad;decorate|bezamoq;costume|libos, kostyum;established|o‘rnashib qolgan;neighbourhood|mahalla;resident|aholi, yashovchi;household|xonadon;facilities|qulayliklar;laundry|kir yuvish xonasi;property|mulk, uy-joy;private|shaxsiy;live independently|mustaqil yashamoq;co-housing|birgalikda yashash;support|qo‘llab-quvvatlamoq;adjust to|...ga moslashmoq;rise|o‘sish;significantly|sezilarli darajada;dramatically|keskin;noticeably|ko‘zga tashlanadigan darajada;make a decision|qaror qabul qilmoq;take a risk|tavakkal qilmoq;do research|tadqiqot o‘tkazmoq;have an impact|ta’sir ko‘rsatmoq",
+G:[["Immigrants need to ___ to new things.","adjust"],["During the festival, people ___ the streets.","decorate"],["47% of homes in Sweden have just one ___.","resident"],["Little Havana is a Cuban ___ in Miami.","neighbourhood"],["The number of people living alone is shooting up ___.","dramatically"],["Hanamatsuri is a ___ where sweet tea is poured onto a statue.","ceremony"]],
+gr:[{t:"Articles",r:"<b>a/an</b> — birinchi marta tilga olinganda, kasb: <i>She’s an engineer.</i> · <b>the</b> — ma’lum yoki yagona narsa, avval aytilgan; daryo, okean nomlari: <i>the sun, the Amazon, the UK</i> · <b>artiklsiz (–)</b> — umumiy ma’nodagi ko‘plik va sanalmaydigan otlar: <i>I love music.</i> Ko‘p davlat va shahar nomlari: <i>Brazil, São Paulo</i>",
+f:[["___ Japanese community in Argentina is well established.","The","Ma’lum jamoa"],["She works as ___ engineer.","an","Kasb, unli tovush"],["I love ___ music. (artikl kerak bo‘lmasa “-” yozing)","-|–|no article|0","Umumiy ma’no"],["Many festivals take place in ___ São Paulo. (yo‘q bo‘lsa “-”)","-|–|no article|0","Shahar nomi"],["They live near ___ Amazon.","the","Daryo nomi"]],
+m:[["Quyosh sharqdan chiqadi.","The sun rises in the east.","Sun rises in east.","A sun rises in the east."],["U shifokor.","She’s a doctor.","She’s doctor.","She’s an doctor."],["Qaysi gap NOTO‘G‘RI?","The life is beautiful.","Life is beautiful.","The life of a cosplayer is exciting."]]},
+{t:"Determiners and quantifiers",r:"<b>much</b> (sanalmaydigan) / <b>many</b> (sanaladigan) · <b>a lot of</b> — ikkalasi · <b>a few</b> (sanaladigan) / <b>a little</b> (sanalmaydigan) — biroz; <b>few / little</b> — juda oz · <b>each / every</b> + birlik · <b>all / most / some / none of the…</b> · <b>both / either / neither</b> — ikkitadan",
+f:[["How ___ people live in your household?","many","Sanaladigan"],["There isn’t ___ space in my flat.","much","Sanalmaydigan, inkor"],["I have ___ close friends – maybe three or four.","a few","Biroz, sanaladigan"],["___ of my parents speaks English. (hech biri)","Neither","Ikkitadan hech biri"],["___ resident has a private flat.","Each|Every","Birlik ot"]],
+m:[["Menda juda oz vaqt bor.","I have very little time.","I have very few time.","I have very many time."],["Ikkala akam ham Toshkentda yashaydi.","Both my brothers live in Tashkent.","Either my brothers live in Tashkent.","Both of brothers live in Tashkent."],["Qaysi gap to‘g‘ri?","Most of the people I know live alone.","Most of people I know live alone.","The most people I know live alone."]]}],
+b:[["Ko‘pchilik yoshlar yolg‘iz yashashni afzal ko‘radi.","Most young people prefer to live alone."],["Mening bir nechta yaqin do‘stim bor.","I have a few close friends."],["Har bir aholining shaxsiy kvartirasi bor.","Each resident has a private flat."]]},
+
+{n:7,t:"Rules",uz:"Qoidalar",
+v:"crime and justice · verbs and prepositions · prefixes",
+g:"present modal verbs · past modals of deduction",
+W:"thief|o‘g‘ri;arrest|hibsga olmoq;suspect|gumon qilmoq;accuse of|...da ayblamoq;blame for|...da aybdor deb bilmoq;illegal|noqonuniy;lost property|yo‘qolgan buyumlar;valuables|qimmatbaho buyumlar;reward|mukofot(lamoq);claim|da’vo qilmoq;ownership|egalik;harsh penalty|qattiq jazo;suspended sentence|shartli hukm;justify|oqlamoq;insist on|...da turib olmoq;prevent from|...dan to‘sib qolmoq;prohibit from|man qilmoq;protect from|...dan himoya qilmoq;criticize for|...uchun tanqid qilmoq;protest against|...ga qarshi chiqmoq;count on|...ga ishonmoq, tayanmoq;switch off|o‘chirmoq;burnout|toliqib qolish;staff|xodimlar;working practices|ish tartiblari;semi-retired|yarim nafaqadagi;self-control|o‘zini tuta bilish;multicoloured|rang-barang;bilingual|ikki tilli;intercontinental|qit’alararo;monotone|bir xil ohangli;biannual|yilda ikki marta",
+G:[["The government has prohibited employers ___ contacting workers.","from"],["A minister has been ___ of having unfair office rules.","accused"],["Clients count ___ being able to talk to their lawyers.","on"],["He was ___ for his honesty.","rewarded"],["In most countries, it is ___ to keep lost property.","illegal"],["The police now ___ that the thieves left the paintings on the train.","suspect"]],
+gr:[{t:"Present modal verbs",r:"<b>must / have to</b> — majburiyat: <i>You must wear a seatbelt.</i> · <b>don’t have to / needn’t</b> — shart emas · <b>mustn’t / can’t</b> — mumkin emas (taqiq) · <b>should / ought to</b> — maslahat · <b>can / be allowed to</b> — ruxsat: <i>Are we allowed to park here?</i>",
+f:[["You ___ wear a uniform at our school – it’s a rule. (majburiyat)","have to|must","Majburiyat"],["It’s Sunday, so we ___ get up early. (shart emas)","don't have to|do not have to|needn't","Shart emas"],["You ___ use your phone during the exam. (taqiq)","mustn't|must not|can't|cannot","Taqiq"],["Staff ___ allowed to check emails after 6 p.m. (inkor)","aren't|are not","be allowed to"],["You ___ apologize to her – she’s upset. (maslahat)","should|ought to","Maslahat"]],
+m:[["Ertaga ishga borishim shart emas.","I don’t have to go to work tomorrow.","I mustn’t go to work tomorrow.","I haven’t to go to work tomorrow."],["Bu yerda chekish mumkin emas.","You mustn’t smoke here.","You don’t have to smoke here.","You needn’t smoke here."],["Qaysi gap to‘g‘ri?","Are we allowed to park here?","Are we allow to park here?","Do we allowed to park here?"]]},
+{t:"Past modals of deduction",r:"<b>must have + V3</b> — deyarli aniq: <i>He must have lost it.</i> · <b>can’t / couldn’t have + V3</b> — bo‘lishi mumkin emas: <i>She can’t have seen us.</i> · <b>may / might / could have + V3</b> — ehtimol: <i>They might have taken the train.</i>",
+f:[["The owner ___ accidentally lost the money. (aniq; 2 so‘z)","must have","must have + V3"],["She ___ have stolen it – she was with me all day.","can't|couldn't|cannot","Mumkin emas"],["The thieves ___ have panicked. (ehtimol)","might|may|could","Ehtimol"],["He’s not answering. He ___ (go) out. (aniq)","must have gone","must have + V3"],["They ___ (not see) us – it was too dark.","can't have seen|couldn't have seen","can’t have + V3"]],
+m:[["U kalitlarini uyda qoldirgan bo‘lsa kerak.","He must have left his keys at home.","He must left his keys at home.","He must has left his keys at home."],["Bu Ali bo‘lishi mumkin emas — u Londonda.","It can’t have been Ali – he’s in London.","It mustn’t have been Ali – he’s in London.","It can’t be have Ali – he’s in London."],["Qaysi gap NOTO‘G‘RI?","She might has forgotten.","She might have forgotten.","She could have taken a taxi."]]}],
+b:[["Bu yerga mashina qo‘yish mumkin emas.","You are not allowed to park here."],["U pulni yo‘qotib qo‘ygan bo‘lsa kerak.","He must have lost the money."],["Ertaga kelishimiz shart emas.","We don't have to come tomorrow."]]},
+
+{n:8,t:"Old and new",uz:"Eski va yangi",
+v:"smart technology · describing people · adjectives + dependent prepositions",
+g:"relative clauses · participle clauses",
+W:"smart device|aqlli qurilma;wireless|simsiz;broadband|keng polosali internet;install|o‘rnatmoq;hack|buzib kirmoq;privacy|shaxsiy daxlsizlik;data|ma’lumotlar;smoke detector|tutun datchigi;tech-savvy|texnikani yaxshi biladigan;arrogant|takabbur;easy-going|bosiq, xotirjam;self-centred|xudbin;self-confident|o‘ziga ishongan;open-minded|ochiq fikrli;optimistic|nikbin;loyal|sodiq;competitive|raqobatchi;realistic|realist;critical of|...ni tanqid qiluvchi;aware of|...dan xabardor;dependent on|...ga qaram;keen on|...ga qiziqadigan;fussy about|...ga injiq;impressed by|...dan hayratlangan;involved in|...ga aloqador;responsible for|...uchun mas’ul;rich in|...ga boy;suspicious of|...dan shubhalangan;sympathetic towards|...ga hamdard;preferable to|...dan afzal",
+G:[["Many people aren’t aware ___ the risks of too much sugar.","of"],["I’ll try anything – I’m not fussy ___ food.","about"],["Quinoa is extremely rich ___ protein.","in"],["Columbus was responsible ___ the start of the Columbian Exchange.","for"],["Every connected device can be ___.","hacked"],["My husband is quite ___; he doesn’t worry about anything.","easy-going"]],
+gr:[{t:"Relative clauses",r:"<b>who</b> — odamlar · <b>which</b> — narsalar · <b>that</b> — ikkalasi (defining) · <b>whose</b> — egalik · <b>where</b> — joy · <b>when</b> — vaqt · <b>Defining</b> (zarur ma’lumot) — vergulsiz · <b>Non-defining</b> (qo‘shimcha) — vergul bilan, <b>that</b> ishlatilmaydi: <i>My brother, who lives in Paris, is a chef.</i>",
+f:[["A smart fridge is a fridge ___ can order food for you.","which|that","Narsa"],["Generation Z are people ___ can’t remember life before smartphones.","who|that","Odamlar"],["You could have a car ___ computer goes online.","whose","Egalik"],["Songdo is a city ___ all homes have fast broadband.","where","Joy"],["My grandfather, ___ is 80, uses a smartphone.","who","Non-defining, odam"]],
+m:[["Bu men tug‘ilgan uy.","This is the house where I was born.","This is the house which I was born.","This is the house where I was born in it."],["Parijda yashaydigan akam oshpaz.","My brother, who lives in Paris, is a chef.","My brother, that lives in Paris, is a chef.","My brother who he lives in Paris is a chef."],["Qaysi gap to‘g‘ri?","The book I bought yesterday is great.","The book I bought it yesterday is great.","The book what I bought yesterday is great."]]},
+{t:"Participle clauses",r:"<b>V-ing</b> — faol ma’no (= who/which + fe’l): <i>People living alone…</i> (= who live alone) · <b>V3</b> — majhul ma’no: <i>a car made in Japan</i> (= which was made) · Gap boshida — vaqt/sabab: <i>Feeling tired, I went to bed.</i>",
+f:[["People ___ (live) in co-housing support each other.","living","Faol ma’no"],["Foods ___ (bring) from America changed European cooking.","brought","Majhul ma’no"],["The man ___ (sit) next to me was a baby boomer.","sitting","Faol ma’no"],["Most phones ___ (sell) today are smartphones.","sold","Majhul ma’no"],["___ (feel) tired, I went to bed early.","Feeling","Sabab"]],
+m:[["Yaponiyada ishlab chiqarilgan mashinalar ishonchli.","Cars made in Japan are reliable.","Cars making in Japan are reliable.","Cars are made in Japan are reliable."],["Derazadan qarab turgan ayol — onam.","The woman looking out of the window is my mother.","The woman looked out of the window is my mother.","The woman is looking out of the window is my mother."],["Qaysi gap NOTO‘G‘RI?","The letter writing by my grandmother is very old.","The letter written by my grandmother is very old.","Anyone wanting tickets should call this number."]]}],
+b:[["Yolg‘iz yashaydigan odamlar ko‘pincha o‘zini yolg‘iz his qiladi.","People living alone often feel lonely."],["Men sportga qiziqaman.","I am keen on sport."],["Bu men tug‘ilgan shahar.","This is the city where I was born."]]},
+{n:9,t:"Nightlife",uz:"Tungi hayot",
+v:"climates and lifestyles · sleep · synonyms and antonyms",
+g:"adjectives and adverbs · past and present habits",
+W:"be a light sleeper|sezgir uxlamoq;sleep like a log|qotib uxlamoq;not sleep a wink|umuman uxlamaslik;fall asleep|uxlab qolmoq;fast asleep|qattiq uyquda;wide awake|butunlay uyg‘oq;nod off|mudrab ketmoq;have a nap|biroz mizg‘ib olmoq;have a snooze|bir oz uxlab olmoq;have a lie-in|ertalab kech turmoq;get up at the crack of dawn|tong saharda turmoq;insomnia|uyqusizlik;earplugs|quloq tiqinlari;cosy|shinam, iliq;cheerful|quvnoq;depressing|ruhni tushiradigan;lively|jonli, gavjum;magical|sehrli;dramatic|keskin, ta’sirli;gradually|asta-sekin;considerably|ancha, sezilarli;slightly|biroz;genuine|haqiqiy;faked|soxtalashtirilgan;deliberate|qasddan qilingan;accidental|tasodifiy;artificial|sun’iy;contrast|keskin farq;wrap up warm|issiq kiyinmoq;originally|asli, dastlab",
+G:[["My sister is a light sleeper, but I sleep like a ___.","log"],["My children always get up at the crack of ___.","dawn"],["You can catch up on sleep by having a ___.","lie-in"],["Twice as many men as women nod ___ while driving.","off"],["In spring, the light ___ starts to come back.","gradually"],["Pakistan is ___ warmer than Norway.","considerably"]],
+gr:[{t:"Adjectives and adverbs",r:"<b>Sifat</b> otni tasvirlaydi: <i>a quick walk</i> · <b>Ravish</b> fe’lni: <i>walk quickly</i> · Oddiy sifatlar bilan <b>very, extremely, a bit</b>: <i>very cold</i> · Kuchli sifatlar bilan <b>absolutely, completely</b>: <i>absolutely freezing</i> · <b>really</b> — ikkalasi bilan · Diqqat: <b>hard</b> (qattiq) – <b>hardly</b> (deyarli…emas), <b>late</b> – <b>lately</b> (so‘nggi paytda)",
+f:[["She speaks English very ___ (good).","well","good → well"],["It’s ___ freezing outside! (very / absolutely)","absolutely","Kuchli sifat"],["I can ___ hear you – speak up! (hard / hardly)","hardly","Deyarli … emas"],["The light ___ (gradual) comes back in spring.","gradually","Ravish"],["Have you been sleeping well ___? (late / lately)","lately","So‘nggi paytda"]],
+m:[["Film juda ajoyib edi.","The film was absolutely brilliant.","The film was very brilliant.","The film was absolutely good."],["U tez yuguradi.","He runs fast.","He runs fastly.","He runs quick."],["Qaysi gap to‘g‘ri?","I worked hard all day.","I worked hardly all day.","I hard worked all day."]]},
+{t:"Past and present habits",r:"<b>used to + inf</b> — o‘tmishdagi odat yoki holat (endi yo‘q): <i>I used to live in Samarkand.</i> · <b>would + inf</b> — o‘tmishdagi takroriy harakat (holat fe’llari bilan emas): <i>Every summer we would go to the mountains.</i> · <b>will</b> — hozirgi odat: <i>She’ll often stay up late.</i> · <b>be used to + -ing</b> — ko‘nikkan · <b>get used to + -ing</b> — ko‘nikmoq",
+f:[["When I was a child, I ___ (live) in Bukhara.","used to live","O‘tmish holati"],["I’m not ___ to sleeping during the day.","used","be used to"],["Every evening, my grandfather ___ tell us stories.","would|used to","Takroriy harakat"],["It took me months to get used to ___ (work) at night.","working","get used to + -ing"],["Did you ___ have a nap after lunch as a child?","use to","Savolda: use to"]],
+m:[["Men erta turishga ko‘nikkanman.","I’m used to getting up early.","I used to get up early.","I’m used to get up early."],["Ilgari sochim uzun edi.","I used to have long hair.","I would have long hair.","I was used to have long hair."],["Qaysi gap NOTO‘G‘RI?","I would live in Tashkent when I was young.","I used to live in Tashkent when I was young.","We would play football every Sunday."]]}],
+b:[["Men ilgari kech yotardim.","I used to go to bed late."],["Men tunda ishlashga ko‘nikkanman.","I am used to working at night."],["Tashqarida qattiq sovuq.","It is absolutely freezing outside."]]},
+
+{n:10,t:"Senses",uz:"Sezgilar",
+v:"looking and seeing · rating performances · easily confused sense verbs",
+g:"order of adjectives · if + other conjunction clauses",
+W:"gaze|uzoq tikilib qaramoq;glance|ko‘z tashlamoq;glare|g‘azab bilan qaramoq;stare|tikilib turmoq;spot|payqab qolmoq;observe|kuzatmoq;watch|tomosha qilmoq;whisper|shivirlamoq;murmur|pichirlamoq;visible|ko‘rinadigan;vision|ko‘rish qobiliyati;illusion|illyuziya, aldanish;hilarious|juda kulgili;witty|hozirjavob;comical|kulgili;ridiculous|bema’ni;tedious|zerikarli, uzundan-uzun;predictable|oldindan bilinadigan;thought-provoking|o‘ylantiruvchi;pointless|ma’nosiz;irritating|asabga tegadigan;distasteful|yoqimsiz, beadab;crunchy|qarsillaydigan;smooth|silliq, mayin;sour|nordon;salty|sho‘r;sharp|o‘tkir;solid|qattiq, mustahkam;twinkling|miltillayotgan;punchline|latifaning kulgili yakuni",
+G:[["I quickly ___ at my watch.","glanced"],["People don’t like it if you ___ at them in public.","stare"],["You don’t need to ___ – nobody is going to hear you.","whisper"],["The film was ___ and far too long.","tedious"],["He’s a very ___ comedian.","witty"],["The panther isn’t easy to ___ in the black and white photo.","spot"]],
+gr:[{t:"Order of adjectives",r:"Tartib: <b>fikr</b> (beautiful) → <b>o‘lcham</b> (big) → <b>yosh</b> (old) → <b>shakl</b> (round) → <b>rang</b> (red) → <b>kelib chiqish</b> (Italian) → <b>material</b> (wooden) → <b>maqsad</b> (dining) + OT. Masalan: <i>a lovely small old round brown Italian wooden dining table</i>. Odatda 2–3 tadan ko‘p ishlatilmaydi.",
+f:[["a ___ table (wooden / round)","round wooden","shakl → material"],["a ___ jacket (white / striking)","striking white","fikr → rang"],["a ___ café (old / beautiful)","beautiful old","fikr → yosh"],["a ___ boat (rubber / yellow)","yellow rubber","rang → material"],["___ mirrors (golden / large)","large golden","o‘lcham → rang"]],
+m:[["Qaysi tartib to‘g‘ri?","a lovely old French car","an old lovely French car","a French lovely old car"],["Qaysi tartib to‘g‘ri?","a small black leather bag","a leather small black bag","a black small leather bag"],["Qaysi tartib to‘g‘ri?","a stiff white cotton tablecloth","a white stiff cotton tablecloth","a cotton white stiff tablecloth"]]},
+{t:"If + other conjunction clauses",r:"<b>if</b> — agar · <b>unless</b> — agar …masa (= if not): <i>I won’t go unless you come.</i> · <b>as long as / provided (that)</b> — sharti bilan · <b>in case</b> — ehtiyot uchun: <i>Take an umbrella in case it rains.</i> · <b>even if</b> — hatto …sa ham · Shart qismida <b>will</b> ishlatilmaydi.",
+f:[["I won’t laugh ___ the joke is funny. (agar …masa)","unless","= if not"],["Take a jacket ___ it gets cold. (2 so‘z)","in case","Ehtiyot uchun"],["You can borrow my car as ___ as you drive carefully.","long","as long as"],["I’ll finish the film ___ if it’s boring. (hatto)","even","even if"],["If it ___ (rain) tomorrow, we’ll stay at home.","rains","Shartda present simple"]],
+m:[["Sen bormasang, men ham bormayman.","I won’t go unless you go.","I won’t go unless you don’t go.","I don’t go unless you will go."],["Kerak bo‘lsa deb raqamimni yozib ol.","Write down my number in case you need it.","Write down my number if case you need it.","Write down my number in case you will need it."],["Qaysi gap to‘g‘ri?","Provided that you finish your work, you can leave early.","Provided that you will finish your work, you can leave early.","Provide that you finish your work, you can leave early."]]}],
+b:[["Agar yomg‘ir yog‘sa, uyda qolamiz.","If it rains we will stay at home."],["Ehtiyot uchun soyabon ol.","Take an umbrella in case it rains."],["Menda chiroyli eski yog‘och stol bor.","I have a beautiful old wooden table."]]},
+
+{n:11,t:"Media",uz:"Media",
+v:"television viewing habits · news · adjective suffixes",
+g:"reported speech · reporting verbs",
+W:"binge-watch|ketma-ket ko‘p qism ko‘rmoq;episode|qism, seriya;drama series|drama serial;sitcom|komediya serial;cookery programme|pazandachilik ko‘rsatuvi;current affairs programme|dolzarb voqealar ko‘rsatuvi;commercial break|reklama tanaffusi;gripping plot|qiziqarli syujet;streaming|onlayn ko‘rish (striming);back to back|ketma-ket;headline|sarlavha;in-depth|chuqur, batafsil;reliable|ishonchli;objective|xolis;informative|ma’lumotga boy;uplifting|ruhlantiruvchi;inspiring|ilhomlantiruvchi;encouraging|dalda beruvchi;addictive|o‘ziga bog‘lab qo‘yadigan;amusing|kulgili;stressful|stressli;viral|tez tarqaladigan (internetda);survey|so‘rovnoma;majority|ko‘pchilik;villain|yovuz qahramon;victory|g‘alaba;violence|zo‘ravonlik;conflict|nizo, mojaro;admit|tan olmoq;assure|ishontirmoq",
+G:[["I often watch several episodes back to ___.","back"],["In a survey, 91% of people said they regularly ___.","binge-watched"],["Serious newspapers give ___ news.","reliable"],["Listicles are specifically designed to go ___.","viral"],["The ___ of people surveyed considered binge-watching bad.","majority"],["There is a demand for more inspiring and ___ news.","uplifting"]],
+gr:[{t:"Reported speech",r:"Zamon bir qadam orqaga: <b>is → was</b>, <b>present simple → past simple</b>, <b>will → would</b>, <b>can → could</b>, <b>have done / did → had done</b> · Vaqt so‘zlari: today → that day, tomorrow → the next day, here → there · Savollar: <i>She asked <b>if/whether</b> I liked it.</i> <i>He asked where I <b>lived</b>.</i> (oddiy tartib)",
+f:[["‘I’m tired.’ → She said she ___ tired.","was","is → was"],["‘I will call you.’ → He said he ___ call me.","would","will → would"],["‘We have finished.’ → They said they ___ finished.","had","have → had"],["‘Do you watch the news?’ → She asked me ___ I watched the news.","if|whether","Ha/yo‘q savol"],["‘Where do you live?’ → He asked me where I ___.","lived","Oddiy tartib, past"]],
+m:[["“Ertaga kelaman”, dedi u.","He said he would come the next day.","He said he would come the tomorrow.","He said that I will come the next day."],["U mendan qayerda ishlashimni so‘radi.","She asked me where I worked.","She asked me where did I work.","She asked me where do I work."],["Qaysi gap NOTO‘G‘RI?","He told that he was busy.","He told me that he was busy.","He said that he was busy."]]},
+{t:"Reporting verbs",r:"<b>+ to:</b> agree, offer, promise, refuse, threaten · <b>+ obj + to:</b> advise, ask, encourage, invite, remind, warn · <b>+ -ing:</b> admit, deny, recommend, suggest · <b>+ predlog + -ing:</b> apologize for, insist on, accuse sb of, blame sb for · <b>+ that:</b> explain, claim, assure sb",
+f:[["He refused ___ (answer) the question.","to answer","refuse + to"],["She admitted ___ (take) the money.","taking","admit + -ing"],["They warned us not ___ (swim) there.","to swim","warn + obj + to"],["He apologized ___ being late.","for","apologize for"],["My friend suggested ___ (watch) a film.","watching","suggest + -ing"]],
+m:[["U kechikkani uchun uzr so‘radi.","She apologized for being late.","She apologized to be late.","She apologized for late."],["Shifokor menga ko‘proq uxlashni maslahat berdi.","The doctor advised me to sleep more.","The doctor advised me sleeping more.","The doctor advised to me sleep more."],["Qaysi gap to‘g‘ri?","He denied breaking the window.","He denied to break the window.","He denied that break the window."]]}],
+b:[["U menga charchaganini aytdi.","She told me that she was tired."],["U mendan yangiliklarni ko‘rasanmi deb so‘radi.","He asked me if I watched the news."],["Ular pulni olganini tan olishdi.","They admitted taking the money."]]},
+
+{n:12,t:"Life stages",uz:"Hayot bosqichlari",
+v:"family and relationships · life events and choices · compound adjectives",
+g:"unreal situations · wish and if only",
+W:"sibling|aka-uka / opa-singil;second cousin|ikkinchi darajali qarindosh;godparent|cho‘qintirgan ota-ona;bring up|tarbiyalab katta qilmoq;take after|(oila a’zosiga) o‘xshamoq;look up to|o‘rnak olmoq, hurmat qilmoq;tell off|urishmoq, koyimoq;get on someone’s nerves|asabiga tegmoq;turn to|yordam so‘rab murojaat qilmoq;care for|g‘amxo‘rlik qilmoq;feel left out|o‘zini chetda qolgandek his qilmoq;make up after a row|janjaldan keyin yarashmoq;spoilt|erka;devoted to|...ga fidoyi;quality time|birga o‘tkaziladigan sifatli vaqt;regret|afsus, pushaymonlik;turn down a job offer|ish taklifini rad etmoq;miss out on|(imkoniyatni) boy bermoq;career path|kasb yo‘li;stand up to bullies|zo‘ravonlarga qarshi turmoq;coincidence|tasodif;blessing in disguise|yashirin baraka;renowned|mashhur;clean-shaven|soqoli qirilgan;thick-rimmed|qalin gardishli;tight-fitting|tor, qomatga yopishgan;second-hand|ishlatilgan;home-made|uyda tayyorlangan;eco-friendly|ekologik toza;little-known|kam tanilgan;run-down|eskirib ketgan",
+G:[["I think I take ___ my father.","after"],["Who in your family do you look up ___?","to"],["My brother gets on my ___ sometimes.","nerves"],["Why did you turn ___ that job offer?","down"],["By ___, Zatopek’s wife was born on the same day.","coincidence"],["With two children, the first one doesn’t feel left ___.","out"]],
+gr:[{t:"Unreal situations",r:"<b>2-shart</b> (hozir/kelajak, xayoliy): If + past simple, would + inf — <i>If I had more time, I would travel.</i> · <b>3-shart</b> (o‘tmish, sodir bo‘lmagan): If + past perfect, would have + V3 — <i>If I had studied, I would have passed.</i> · <b>Aralash:</b> <i>If I had taken that job, I would be rich now.</i> · Maslahat: <i>If I were you…</i>",
+f:[["If I ___ (have) more money, I would buy a house.","had","2-shart"],["If I had studied harder, I ___ (pass) the exam.","would have passed","3-shart"],["If I ___ you, I’d take the job.","were|was","If I were you"],["If she ___ (not miss) the bus, she wouldn’t have been late.","hadn't missed|had not missed","3-shart, inkor"],["If I had taken that job, I ___ (be) rich now.","would be","Aralash shart"]],
+m:[["Vaqtim bo‘lganida, sizga yordam berardim (hozir).","If I had time, I would help you.","If I have time, I would help you.","If I would have time, I helped you."],["U kelganida, biz uchrashgan bo‘lardik.","If he had come, we would have met.","If he would have come, we would met.","If he had come, we would meet yesterday."],["Qaysi gap NOTO‘G‘RI?","If I would know the answer, I would tell you.","If I knew the answer, I would tell you.","If I had known, I would have told you."]]},
+{t:"Wish and if only",r:"<b>wish / if only + past simple</b> — hozirgi holatdan afsus: <i>I wish I had a sibling.</i> · <b>+ past perfect</b> — o‘tmishdan afsus: <i>I wish I hadn’t said that.</i> · <b>+ would</b> — boshqalarning xatti-harakatidan norozilik: <i>I wish you would stop talking.</i> · <b>+ could</b> — qobiliyat: <i>I wish I could swim.</i>",
+f:[["I wish I ___ (have) more siblings.","had","Hozirgi afsus"],["If only I ___ (not turn) down that job offer!","hadn't turned|had not turned","O‘tmishdan afsus"],["I wish I ___ run fast. (qobiliyat)","could","wish + could"],["I wish you ___ stop interrupting me!","would","Norozilik"],["I wish I ___ (invest) in property years ago.","had invested","O‘tmishdan afsus"]],
+m:[["Qani endi suzishni bilsam.","I wish I could swim.","I wish I can swim.","I wish I would swim."],["Kecha u gapni aytmaganimda edi.","I wish I hadn’t said that yesterday.","I wish I didn’t say that yesterday.","I wish I wouldn’t say that yesterday."],["Qaysi gap to‘g‘ri?","If only it would stop raining!","If only it stops raining!","If only it will stop raining!"]]}],
+b:[["Qani endi ko‘proq vaqtim bo‘lsa.","I wish I had more time."],["Men sizning o‘rningizda bo‘lsam, bu ishni olardim.","If I were you I would take the job."],["Men otamga o‘xshayman.","I take after my father."]]}
+];
+// Reading: p = paragraphs, [word|uzbek] = glossed word. tf: [statement, true?]. q: [question, correct, wrong, wrong]. fw: [uzbek, english]
+// Writing: err = text with *wrong~right* marks. m = model {h, l:[lines]}. ph = useful phrases. task, min, chk: [label, regex]
+const RW = {
+1:{R:{t:"Small talk in a big city — by Dilnoza",
+p:["When I moved from Tashkent to London to study, I thought my English was good enough. I was wrong. My grammar was fine, but I didn’t know the unwritten [rules|qoidalar] of conversation. On my first day, a classmate asked me how I was, and I gave her a detailed answer about my [homesickness|vatanni sog‘inish]. She looked a bit [awkward|noqulay] and quickly changed the subject.",
+"I soon discovered that British people love [small talk|yengil suhbat]. They talk about the weather, the traffic or last night’s football match, but they rarely ask personal questions such as how much you [earn|ishlab topmoq]. In Uzbekistan, asking about someone’s family is a sign of respect; in London it can sometimes feel too [direct|to‘g‘ridan-to‘g‘ri].",
+"I have been living here for two years now, and I have learnt a lot. I listen more than I speak, I ask open questions and I try to find [shared interests|umumiy qiziqishlar]. Last month I hit it off with my new neighbour simply because we both complained about the rain. Small talk, I realised, isn’t empty – it’s a bridge."],
+uz:["Toshkentdan Londonga o‘qishga ko‘chib kelganimda, ingliz tilim yetarli deb o‘ylagandim. Adashgan ekanman. Grammatikam yaxshi edi, lekin suhbatning yozilmagan qoidalarini bilmasdim. Birinchi kuni sinfdoshim ahvolimni so‘radi, men esa vatanni sog‘inishim haqida batafsil gapirib berdim. U biroz noqulay bo‘ldi va tezda mavzuni o‘zgartirdi.","Tez orada britaniyaliklar yengil suhbatni yaxshi ko‘rishini bildim. Ular ob-havo, tirbandlik yoki kechagi futbol haqida gaplashishadi, lekin kam hollarda shaxsiy savollar, masalan, qancha pul ishlashingizni so‘rashadi. O‘zbekistonda birovning oilasi haqida so‘rash hurmat belgisi; Londonda esa bu ba’zan haddan tashqari to‘g‘ridan-to‘g‘ri tuyulishi mumkin.","Men bu yerda ikki yildan beri yashayapman va ko‘p narsa o‘rgandim. Gapirishdan ko‘ra ko‘proq tinglayman, ochiq savollar beraman va umumiy qiziqishlar topishga harakat qilaman. O‘tgan oy yangi qo‘shnim bilan darhol til topishdim — ikkalamiz ham yomg‘irdan noliganimiz uchun. Yengil suhbat bo‘sh gap emas ekan — u ko‘prikdir."],
+tf:[["Dilnoza’s grammar was the main problem when she arrived.",false],["Her classmate felt uncomfortable after Dilnoza’s long answer.",true],["British people often ask how much you earn.",false],["Dilnoza has lived in London for two years.",true]],
+q:[["What do British people usually talk about in small talk?","the weather and football","their salaries","their family problems"],["Why did Dilnoza get on well with her neighbour?","They both complained about the rain.","They were from the same city.","They studied together."],["What is the main idea of the text?","Small talk helps people connect.","British people are unfriendly.","Grammar is the most important skill."]],
+fw:[["noqulay","awkward"],["qoidalar","rules"],["umumiy qiziqishlar","shared interests"],["to‘g‘ridan-to‘g‘ri","direct"]]},
+W:{t:"An informal email giving news",uz:"Do‘stga yangilik haqida norasmiy email",
+err:"Hi Aziz, Sorry I *haven’t wrote~haven’t written* for ages! I *am living~have been living* in Samarkand since March. *I’ve got~I got* a new job last month. Write soon!",
+m:{h:"Hi Kamola,",l:["Sorry I haven’t been in touch for so long – things have been really busy!","Guess what? I’ve finally passed my driving test! I’ve been practising every weekend since January.","I’ve also started a new course at the language centre. It’s hard work, but I’m loving it.","How about you? Have you moved into your new flat yet?","It would be great to catch up soon. Let me know when you’re free.","Lots of love,","Nodira"]},
+ph:["Sorry I haven’t been in touch for ages.","Guess what?","You’ll never believe this, but…","Anyway, enough about me – how are you?","It would be great to catch up soon.","Lots of love / Take care / Best wishes"],
+task:"Do‘stingizga 120–180 so‘zlik email yozing: so‘nggi oylardagi 2–3 ta yangiligingizni ayting va uning ahvolini so‘rang.",min:120,max:180,
+chk:[["Salomlashish (Hi / Dear)","^\\s*(hi|hello|dear|hey)\\b"],["Present perfect (have/has + V3)","\\b(have|has|'ve|’ve)\\s+(\\w+ed|been|done|got|made|seen|written|passed|started|moved|found|bought|met)\\b"],["Savol berilgan (?)","\\?"],["Yakunlovchi ibora (Love / Best wishes / Take care)","(love|best wishes|take care|see you|write soon)"]]}},
+
+2:{R:{t:"Two wheels on the Silk Road",
+p:["In 2019, a 28-year-old teacher from Fergana called Sevara decided to [step out of her comfort zone|odatiy hayotidan chiqmoq]. She had never travelled further than Tashkent, but she had been dreaming about the Silk Road since childhood. So she bought a second-hand bike and set off for Istanbul.",
+"The journey was far from easy. In Turkmenistan the heat was so intense that she could only cycle early in the morning. In Iran her bike was [damaged|shikastlangan] in a storm, and she was [stranded|qolib ketgan] in a small village for four days. ‘I was miserable at first,’ she says, ‘but the local people were incredibly kind. By the time the bike had been repaired, I had learnt to cook three Persian dishes.’",
+"After almost four months and 5,000 kilometres, Sevara finally arrived in Istanbul. She was exhausted, but [relieved|yengil tortgan] and incredibly proud. Today she gives talks to students about [courage|jasorat] and [determination|qat’iyat]. ‘You don’t need to be fearless,’ she tells them. ‘You just need to start.’"],
+uz:["2019-yilda Farg‘onalik 28 yoshli o‘qituvchi Sevara odatiy hayotidan chiqishga qaror qildi. U ilgari Toshkentdan uzoqqa sayohat qilmagan edi, ammo bolaligidan Buyuk Ipak yo‘lini orzu qilib kelardi. Shunday qilib, u ishlatilgan velosiped sotib oldi va Istanbulga yo‘l oldi.","Sayohat aslo oson bo‘lmadi. Turkmanistonda jazirama shunchalik kuchli ediki, u faqat erta tongda velosiped hayday olardi. Eronda bo‘ronda velosipedi shikastlandi va u kichik qishloqda to‘rt kun qolib ketdi. «Avvaliga juda baxtsiz edim, — deydi u, — lekin mahalliy odamlar nihoyatda mehribon edi. Velosiped tuzatilguncha men uchta fors taomini pishirishni o‘rganib olgan edim.»","Deyarli to‘rt oy va 5000 kilometrdan so‘ng Sevara nihoyat Istanbulga yetib keldi. U juda charchagan, ammo yengil tortgan va behad faxrlanardi. Bugun u talabalarga jasorat va qat’iyat haqida ma’ruzalar qiladi. «Qo‘rqmas bo‘lishingiz shart emas, — deydi u ularga. — Shunchaki boshlashingiz kerak.»"],
+tf:[["Sevara had travelled abroad many times before 2019.",false],["She bought a new bike for the journey.",false],["Her bike was damaged in Iran.",true],["The journey took about four months.",true]],
+q:[["Why did Sevara cycle early in the morning in Turkmenistan?","Because it was very hot.","Because the roads were busy.","Because she wanted to see the sunrise."],["What did she learn while she was waiting in the village?","to cook Persian dishes","to repair bikes","to speak Turkish"],["What is Sevara’s message to students?","You just need to start.","You must never be afraid.","Travelling alone is dangerous."]],
+fw:[["shikastlangan","damaged"],["yengil tortgan","relieved"],["jasorat","courage"],["qat’iyat","determination"]]},
+W:{t:"An email of complaint",uz:"Shikoyat xati (rasmiy email)",
+err:"Dear Sir or Madam, I am writing to complain about the service on flight HY101. When I arrived, I *have discovered~discovered* that my suitcase *has been lost~had been lost*. *I want my money back now.~I would like a full refund.*",
+m:{h:"Dear Sir or Madam,",l:["I am writing to complain about my recent stay at the Grand Hotel from 3 to 5 May.","I had asked reception for a wake-up call at 6 a.m. as I needed to catch an early flight. Unfortunately, the call came an hour late and, as a result, I missed my flight.","I had to buy a new ticket, which cost $250. I feel that the hotel should take responsibility for this mistake.","I would therefore like a full refund of the cost of the ticket.","I look forward to hearing from you.","Yours faithfully,","Jasur Karimov"]},
+ph:["I am writing to complain about…","Unfortunately, …","As a result, …","I would be grateful if you could…","I would like a full refund / compensation.","I look forward to hearing from you.","Yours faithfully (ism noma’lum) / Yours sincerely (ism ma’lum)"],
+task:"Mehmonxona, aviakompaniya yoki internet-do‘konga 140–190 so‘zlik shikoyat xati yozing: nima bo‘ldi, oqibati qanday bo‘ldi va nima talab qilasiz.",min:140,max:190,
+chk:[["Rasmiy murojaat (Dear Sir or Madam / Dear Mr…)","dear\\s+(sir|madam|mr|mrs|ms)"],["Shikoyat sababi (complain)","complain"],["Past perfect (had + V3)","\\bhad\\s+\\w+(ed|en|lost|left|paid|told|said|made|bought)\\b"],["Rasmiy yakun (Yours faithfully / sincerely)","yours\\s+(faithfully|sincerely)"]]}},
+
+3:{R:{t:"Time or money?",
+p:["If someone offered you a 20% pay rise in exchange for working an extra day every week, would you accept? A recent survey of young professionals in Tashkent found that almost 60% would say no. For a growing number of people, time has become more [valuable|qimmatli] than money.",
+"Experts believe this is a sensible choice. ‘Money can always be earned again, but time can’t,’ says career coach Bobur Rahimov. He advises his clients to [set aside|ajratib qo‘ymoq] time every week for the things that really matter to them – family, health and learning. ‘Most people [fritter away|behuda sovurmoq] hours scrolling on their phones and then complain that they’re short of time.’",
+"Rahimov believes that by 2035 many companies will have introduced a four-day week, and employees will be judged on results rather than hours. ‘The people who will succeed are the ones who [invest|sarmoya kiritmoq] in themselves now,’ he says. ‘Learn a language, pick up a new skill, make the most of every [opportunity|imkoniyat].’"],
+uz:["Agar kimdir sizga har hafta bir kun ortiqcha ishlash evaziga maoshingizni 20% oshirishni taklif qilsa, rozi bo‘larmidingiz? Toshkentdagi yosh mutaxassislar o‘rtasidagi yaqindagi so‘rov ularning qariyb 60% «yo‘q» deyishini ko‘rsatdi. Tobora ko‘proq odamlar uchun vaqt puldan qimmatliroq bo‘lib qoldi.","Mutaxassislar buni oqilona tanlov deb hisoblaydi. «Pulni har doim yana ishlab topish mumkin, vaqtni esa yo‘q», — deydi martaba murabbiyi Bobur Rahimov. U mijozlariga har hafta o‘zlari uchun haqiqatan muhim narsalar — oila, salomatlik va o‘qishga vaqt ajratishni maslahat beradi. «Ko‘pchilik soatlab telefon varaqlab vaqtni behuda sovuradi, keyin vaqtim yetmaydi deb noliydi.»","Rahimovning fikricha, 2035-yilga kelib ko‘plab kompaniyalar to‘rt kunlik ish haftasini joriy qilgan bo‘ladi va xodimlar soatlar emas, natijalar bo‘yicha baholanadi. «Muvaffaqiyatga erishadiganlar — hozir o‘zlariga sarmoya kiritayotganlar, — deydi u. — Til o‘rganing, yangi ko‘nikma egallang, har bir imkoniyatdan to‘liq foydalaning.»"],
+tf:[["Most people in the survey would work an extra day for more money.",false],["Bobur Rahimov is a career coach.",true],["He thinks people waste a lot of time on their phones.",true],["He believes companies will judge workers on hours, not results.",false]],
+q:[["Why does Rahimov think time is more important than money?","Time can’t be earned again.","Money is not useful.","People have too much money."],["What does he think many companies will have done by 2035?","introduced a four-day week","stopped paying salaries","closed their offices"],["What does he advise people to do now?","invest in themselves","save all their money","work longer hours"]],
+fw:[["qimmatli","valuable"],["ajratib qo‘ymoq","set aside"],["imkoniyat","opportunity"],["sarmoya kiritmoq","invest"]]},
+W:{t:"A balanced opinion essay",uz:"Ikki tomonlama fikr-esse (opinion essay)",
+err:"Some people believe that technology *will gives~will give* us more free time. *In other hand~On the other hand*, others think we will work more. In my opinion, *I think~(o‘chiring)* both views are partly true.",
+m:{h:"Will technology give us more free time?",l:["These days, computers and the internet are becoming more and more important in our lives.","On the one hand, technology is likely to do many tasks for us. For example, self-driving cars will save time, and smart homes will do some of the housework.","On the other hand, people may have less free time because employers will expect them to be available all the time. Moreover, smartphones make it difficult to switch off.","In conclusion, I believe technology could give us more time, but only if we learn to control how we use it."]},
+ph:["These days, … / In recent years, …","On the one hand, … On the other hand, …","For example / For instance, …","Additionally, … / Moreover, …","In my opinion, … / I believe that …","In conclusion, … / To sum up, …"],
+task:"“Kelajakda odamlar uydan ishlaydi” mavzusida 160–220 so‘zlik esse yozing: ikkala tomonning dalillari va o‘z fikringiz.",min:160,max:220,
+chk:[["On the one hand / On the other hand","on the other hand"],["Misol (For example / For instance)","for (example|instance)"],["Kelajak shakli (will / going to / will be -ing)","\\b(will|going to|'ll)\\b"],["Xulosa (In conclusion / To sum up)","(in conclusion|to sum up|overall)"]]}},
+
+4:{R:{t:"Can an office make you creative?",
+p:["Slides instead of stairs, hammocks instead of chairs and a ping-pong table in the meeting room: some of the world’s best-known companies have [redesigned|qayta loyihalashtirmoq] their offices to look more like playgrounds. The idea is simple – if employees are relaxed and having fun, they will come up with more [innovative|innovatsion] ideas.",
+"But does it really work? Research suggests the answer is more complicated. A study carried out in 2022 found that colourful, [open-plan|ochiq rejali] offices helped people to share ideas, but they also made it harder to concentrate. Noise was the biggest problem: many employees said they had their best ideas at home, not at work.",
+"Some designers now believe the perfect office should offer [variety|xilma-xillik]. In a new building in Tashkent City, for example, staff can choose between lively shared spaces, quiet ‘focus rooms’ and a small garden on the roof. ‘People aren’t the same, so their workspaces shouldn’t be the same either,’ says the architect. It may not look as [striking|ko‘zga tashlanadigan] as a slide, but it seems to be more practical."],
+uz:["Zinapoya o‘rniga sirpanchiq, stul o‘rniga osma to‘r va majlislar xonasida stol tennisi: dunyoning eng mashhur kompaniyalaridan ba’zilari ofislarini o‘yin maydonchasiga o‘xshatib qayta loyihalashtirgan. G‘oya oddiy: agar xodimlar xotirjam bo‘lib, maroqli vaqt o‘tkazsa, ular ko‘proq innovatsion g‘oyalar o‘ylab topadi.","Lekin bu haqiqatan ham ishlaydimi? Tadqiqotlar javob murakkabroq ekanini ko‘rsatadi. 2022-yilda o‘tkazilgan tadqiqot rang-barang, ochiq rejali ofislar odamlarga g‘oya almashishga yordam berishini, biroq diqqatni jamlashni qiyinlashtirishini aniqladi. Eng katta muammo shovqin edi: ko‘plab xodimlar eng yaxshi g‘oyalari ishda emas, uyda kelishini aytdi.","Ba’zi dizaynerlar endi ideal ofis xilma-xillik taklif qilishi kerak deb hisoblaydi. Masalan, Tashkent City’dagi yangi binoda xodimlar jonli umumiy joylar, tinch «diqqat xonalari» va tomdagi kichik bog‘ orasidan tanlashlari mumkin. «Odamlar bir xil emas, shuning uchun ularning ish joylari ham bir xil bo‘lmasligi kerak», — deydi me’mor. Bu sirpanchiqdek ko‘zga tashlanmasligi mumkin, lekin amaliyroq ko‘rinadi."],
+tf:[["Some companies have put slides and hammocks in their offices.",true],["The 2022 study showed open-plan offices made concentrating easier.",false],["Noise was the biggest problem for employees.",true],["The Tashkent City building has only one type of workspace.",false]],
+q:[["Why do companies make their offices fun?","to help employees have more innovative ideas","to save money","to attract tourists"],["Where did many employees say they had their best ideas?","at home","in the meeting room","on the slide"],["What does the architect believe?","Different people need different workspaces.","All offices should have a slide.","Gardens are a waste of space."]],
+fw:[["innovatsion","innovative"],["ochiq rejali","open-plan"],["xilma-xillik","variety"],["ko‘zga tashlanadigan","striking"]]},
+W:{t:"Writing a summary",uz:"Matnning qisqacha bayoni (summary)",
+err:"The article *say~says* that fun offices can help people *sharing~share* ideas. However, they *was~were* often too noisy for people to concentrate.",
+m:{h:"Summary: Can an office make you creative?",l:["The article discusses whether playful office designs make employees more creative.","According to the writer, open-plan offices with games and slides help people share ideas.","However, research has shown that they can be noisy, which makes it difficult to concentrate.","The writer concludes that the best offices offer a variety of spaces, both lively and quiet."]},
+ph:["The article discusses / describes …","According to the writer, …","The main point is that …","However, …","The writer concludes that …","Qoida: o‘z so‘zlaringiz bilan yozing, misol va tafsilotlarni tushirib qoldiring."],
+task:"O‘qish bo‘limidagi matnni (yoki boshqa unitdagi matnni) 60–90 so‘z bilan o‘z so‘zlaringiz bilan qisqacha bayon qiling.",min:60,max:90,
+chk:[["The article / The writer bilan boshlangan","(the article|the text|the writer)"],["According to …","according to"],["Qarama-qarshilik (However / but)","\\b(however|but|although)\\b"],["Xulosa (concludes / overall)","(conclude|overall|in short)"]]}},
+
+5:{R:{t:"In defence of boredom",
+p:["When was the last time you were truly bored? For most of us, the answer is ‘I can’t remember’. The moment we have nothing to do – waiting for a bus, standing in a queue – we reach for our phones. Psychologists warn that this habit may be making us less [creative|ijodkor].",
+"In one famous experiment, two groups of people were asked to [come up with|o‘ylab topmoq] as many uses for a plastic cup as possible. Before the task, the first group had spent fifteen minutes copying numbers from a telephone book – an extremely [dull|zerikarli] activity. The second group went straight to the task. Surprisingly, the bored group produced far more original ideas.",
+"Researchers think that when we are bored, our minds start to [wander|chalg‘imoq], and this helps us make unusual connections. So next time you find yourself with nothing to do, try not to [avoid|qochmoq] the feeling. Leave your phone in your pocket, look out of the window and let your thoughts settle. You might be surprised by what you [work out|anglab yetmoq]."],
+uz:["Oxirgi marta qachon chinakamiga zerikkansiz? Ko‘pchiligimiz uchun javob — «eslay olmayman». Qiladigan ishimiz qolmagan zahoti — avtobus kutayotganda, navbatda turganda — telefonimizga qo‘l cho‘zamiz. Psixologlar bu odat bizni kamroq ijodkor qilayotgan bo‘lishi mumkinligidan ogohlantiradi.","Mashhur tajribalardan birida ikki guruh odamlardan plastik stakandan foydalanishning iloji boricha ko‘p usullarini o‘ylab topish so‘raldi. Topshiriqdan oldin birinchi guruh o‘n besh daqiqa telefon kitobidan raqamlar ko‘chirgan edi — bu o‘ta zerikarli mashg‘ulot. Ikkinchi guruh to‘g‘ridan-to‘g‘ri topshiriqqa o‘tdi. Ajablanarlisi, zerikkan guruh ancha ko‘p original g‘oyalar berdi.","Tadqiqotchilarning fikricha, zerikkanimizda xayolimiz chalg‘iy boshlaydi va bu bizga g‘ayrioddiy bog‘liqliklarni topishga yordam beradi. Shuning uchun keyingi safar qiladigan ishingiz bo‘lmasa, bu tuyg‘udan qochmang. Telefoningizni cho‘ntakda qoldiring, derazadan qarang va fikrlaringizni tinchlantiring. Nimani anglab yetganingizdan hayron qolishingiz mumkin."],
+tf:[["Most people often feel bored nowadays.",false],["Psychologists think phones may make us less creative.",true],["The first group copied numbers before the task.",true],["The group that wasn’t bored had more original ideas.",false]],
+q:[["What did the people have to think of?","uses for a plastic cup","telephone numbers","ways to avoid boredom"],["Why does boredom help creativity, according to researchers?","Our minds wander and make unusual connections.","We sleep more.","We use our phones less."],["What does the writer advise?","Don’t reach for your phone when you’re bored.","Always keep busy.","Read a telephone book every day."]],
+fw:[["zerikarli","dull"],["o‘ylab topmoq","come up with"],["ijodkor","creative"],["qochmoq","avoid"]]},
+W:{t:"An article giving advice",uz:"Maslahat beruvchi maqola",
+err:"If you want *improving~to improve* your memory, try *to sleep~sleeping* more. *Don’t forget doing~Don’t forget to do* some exercise every day.",
+m:{h:"Five ways to beat exam stress",l:["Do you feel nervous before exams? You’re not alone. Here are some tips to help you stay calm.","1 Make sure you plan your revision. Don’t try to learn everything the night before.","2 Take regular breaks. Your brain needs time to rest, otherwise you’ll lose concentration.","3 Avoid drinking too much coffee – it can make you feel even more anxious.","4 Try going for a short walk. Fresh air really helps.","5 Whatever you do, don’t compare yourself with others. Good luck!"]},
+ph:["Make sure you … / It’s essential that you …","Try + -ing …","Avoid + -ing …","Whatever you do, don’t …","…, otherwise … / …, or else …","…, in case …"],
+task:"Maktab yoki universitet jurnali uchun “Zerikishni qanday yengish mumkin” mavzusida 140–190 so‘zlik maslahat maqolasi yozing. Sarlavha va kamida 4 ta maslahat bo‘lsin.",min:140,max:190,
+chk:[["try / avoid + -ing","\\b(try|avoid|stop|keep)\\s+\\w+ing\\b"],["Make sure / It’s essential","(make sure|essential|important to)"],["Taqiq maslahati (don’t / never)","\\b(don'?t|don’t|never)\\b"],["Sabab/ogohlantirish (otherwise / or else / in case)","(otherwise|or else|in case)"]]}},
+
+6:{R:{t:"Living alone, together",
+p:["In many countries the number of people living alone has risen dramatically. In Sweden, almost half of all households have just one [resident|aholi]. Experts link this trend to rising incomes, longer lives and a growing desire for [independence|mustaqillik]. But living alone can also be lonely.",
+"One solution that is becoming popular in Europe is co-housing. Residents have their own private flats, but they share [facilities|qulayliklar] such as a large kitchen, a laundry and a garden. Most communities eat together two or three times a week and make decisions at regular meetings. ‘I have my own space, but I’m never [isolated|yolg‘izlanib qolgan],’ says one resident in Leeds.",
+"For many Uzbeks, this idea sounds familiar. A traditional mahalla works in a similar way: neighbours help each other with weddings, repairs and childcare, and older people are rarely left alone. In fact, some European architects have studied the mahalla as a model of [community|jamoa] life. Perhaps the future of housing is not something completely new, but something we already know."],
+uz:["Ko‘plab mamlakatlarda yolg‘iz yashaydigan odamlar soni keskin oshdi. Shvetsiyada barcha xonadonlarning deyarli yarmida faqat bitta aholi yashaydi. Mutaxassislar bu tendensiyani daromadlarning oshishi, umrning uzayishi va mustaqillikka bo‘lgan intilish bilan bog‘laydi. Ammo yolg‘iz yashash zerikarli va yolg‘izlik ham bo‘lishi mumkin.","Yevropada ommalashib borayotgan yechimlardan biri — birgalikda yashash (co-housing). Aholining shaxsiy kvartiralari bor, lekin ular katta oshxona, kir yuvish xonasi va bog‘ kabi qulayliklarni baham ko‘radi. Ko‘pchilik jamoalar haftasiga ikki-uch marta birga ovqatlanadi va muntazam yig‘ilishlarda qaror qabul qiladi. «Mening shaxsiy makonim bor, lekin hech qachon yolg‘izlanib qolmayman», — deydi Lidsdagi bir aholi.","Ko‘plab o‘zbeklar uchun bu g‘oya tanish eshitiladi. An’anaviy mahalla ham shunga o‘xshash ishlaydi: qo‘shnilar to‘y, ta’mirlash va bolalarga qarashda bir-biriga yordam beradi, keksalar kamdan-kam yolg‘iz qoladi. Aslida, ba’zi yevropalik me’morlar mahallani jamoa hayoti namunasi sifatida o‘rgangan. Ehtimol, uy-joyning kelajagi butunlay yangi narsa emas, balki biz allaqachon biladigan narsadir."],
+tf:[["In Sweden, almost half of households have one person.",true],["Co-housing residents don’t have private flats.",false],["People in co-housing often eat together.",true],["European architects have never heard of the mahalla.",false]],
+q:[["Which reason for living alone is NOT mentioned?","cheaper flats","rising incomes","longer lives"],["What do co-housing residents share?","a kitchen, a laundry and a garden","their bedrooms","their cars"],["What is the writer’s final point?","The mahalla is a good model for the future.","Co-housing will never work in Uzbekistan.","Everyone should live alone."]],
+fw:[["mustaqillik","independence"],["qulayliklar","facilities"],["jamoa","community"],["aholi","resident"]]},
+W:{t:"Describing data",uz:"Grafik/ma’lumotlarni tasvirlash",
+err:"The chart *show~shows* how much time people spend with *the family~their family*. *A most~Most* young people see their family every day, but *few~a few* older people do.",
+m:{h:"Time spent with family by age group",l:["The chart shows how often people of different ages spend time with their family.","The most noticeable feature is that young people aged 16–24 spend the most time with their family: about 70% see them every day.","In contrast, only 35% of people over 65 see their family daily.","The figure falls significantly between the ages of 25 and 44.","Overall, the data suggests that older people are more likely to spend time alone."]},
+ph:["The chart / graph shows …","The most noticeable feature is …","Most / Some / A few / Very few …","rise / increase / fall / drop significantly / slightly","In contrast, …","Overall, the data suggests that …"],
+task:"Quyidagi ma’lumotlarni 120–160 so‘zda tasvirlang. O‘zbekistonda yolg‘iz yashaydiganlar: 2000 – 4%, 2010 – 6%, 2020 – 9%, 2025 – 11%. Eng ko‘p o‘sish shaharlarda.",min:120,max:160,
+chk:[["The chart / The data shows","(chart|graph|data|table)\\s+(shows|suggests|illustrates)"],["Raqamlar / foizlar","\\d+\\s*(%|per\\s?cent)"],["O‘zgarish fe’llari (rise / increase / fall)","\\b(rise|rises|rose|risen|increase|increases|increased|fall|falls|fell|drop|drops|dropped|grew|grown|grows)\\b"],["Kvantifikator (most / some / a few)","\\b(most|some|a few|few|all|none)\\b"]]}},
+
+7:{R:{t:"Finders keepers?",
+p:["Last spring, a taxi driver in Samarkand called Rustam noticed a small black bag on the back seat of his car. Inside he found $3,000 in cash, a passport and a plane ticket to Dubai. The passenger must have left it there by accident only an hour earlier.",
+"Many people believe in the saying ‘finders keepers’, but in most countries it is actually [illegal|noqonuniy] to keep [lost property|yo‘qolgan buyum] if the owner can be found. Rustam didn’t even think about keeping the money. He drove straight to the airport and asked the staff to make an [announcement|e’lon]. Twenty minutes later, a very [relieved|yengil tortgan] businessman was shaking his hand.",
+"The businessman offered Rustam a [reward|mukofot] of $500, but he refused to take it. ‘I only did what anyone should do,’ he explained. The story spread quickly on social media, and the city council later gave Rustam a certificate for his [honesty|halollik]. ‘My children were proud of me,’ he says. ‘That was worth more than any money.’"],
+uz:["O‘tgan bahorda Samarqandlik Rustam ismli taksi haydovchisi mashinasining orqa o‘rindig‘ida kichik qora sumkani payqab qoldi. Uning ichida 3000 dollar naqd pul, pasport va Dubayga samolyot chiptasi bor edi. Yo‘lovchi uni bir soat oldin tasodifan qoldirgan bo‘lsa kerak.","Ko‘pchilik «topgan — egasi» degan maqolga ishonadi, lekin aksariyat mamlakatlarda, agar egasini topish mumkin bo‘lsa, yo‘qolgan buyumni olib qolish aslida noqonuniy. Rustam pulni olib qolish haqida o‘ylamadi ham. U to‘g‘ri aeroportga bordi va xodimlardan e’lon berishni so‘radi. Yigirma daqiqadan so‘ng juda yengil tortgan tadbirkor uning qo‘lini siqib turardi.","Tadbirkor Rustamga 500 dollar mukofot taklif qildi, ammo u olishdan bosh tortdi. «Men faqat har kim qilishi kerak bo‘lgan ishni qildim», — tushuntirdi u. Voqea ijtimoiy tarmoqlarda tez tarqaldi va keyinroq shahar hokimligi Rustamga halolligi uchun yorliq topshirdi. «Bolalarim men bilan faxrlanishdi, — deydi u. — Bu har qanday puldan qimmatroq edi.»"],
+tf:[["Rustam found the bag in his taxi.",true],["There was a passport in the bag.",true],["Rustam took the money to the police station.",false],["Rustam accepted a $500 reward.",false]],
+q:[["Where was the passenger probably going?","to Dubai","to Samarkand","to the police"],["What did Rustam ask the airport staff to do?","make an announcement","call the police","keep the bag"],["What did the city council give Rustam?","a certificate","$500","a new taxi"]],
+fw:[["noqonuniy","illegal"],["mukofot","reward"],["halollik","honesty"],["e’lon","announcement"]]},
+W:{t:"A persuasive letter / email",uz:"Ishontiruvchi xat (rasmiy taklif)",
+err:"I am writing to ask you *supporting~to support* our campaign. Our school *must to~must* have more green spaces. I’m sure you agree that students *needs~need* a place to relax.",
+m:{h:"Dear Mayor,",l:["I am writing to ask you to support our campaign to build a cycle lane on Amir Temur Street.","At the moment, cyclists have to ride on the main road, which is extremely dangerous. Last year there were more than twenty accidents.","A cycle lane would not only make the street safer, but it would also reduce traffic and pollution.","I am sure you will agree that the safety of our citizens must come first.","I would be grateful if you could consider our proposal.","Yours sincerely,","Malika Usmonova"]},
+ph:["I am writing to ask you to …","At the moment, …","…would not only …, but would also …","I am sure you will agree that …","Surely, …","I would be grateful if you could …"],
+task:"Hokimlik yoki maktab direktoriga 150–200 so‘zlik xat yozing: biror muammoni hal qilishni (masalan, bog‘, sport maydonchasi, chiroqlar) iltimos qiling va ishontiruvchi dalillar keltiring.",min:150,max:200,
+chk:[["Modal fe’llar (must / should / have to)","\\b(must|should|have to|has to|need to)\\b"],["Ishontirish (I am sure you will agree / Surely)","(sure you|surely|clearly)"],["Iltimos (I would be grateful if)","(grateful|would like you to|ask you to)"],["Rasmiy yakun (Yours sincerely / faithfully)","yours\\s+(sincerely|faithfully)"]]}},
+
+8:{R:{t:"Three generations, one office",
+p:["At a busy IT company in Tashkent, three generations work side by side. Farhod, 52, is a manager who started his career before the internet [existed|mavjud bo‘lmoq] in Uzbekistan. Nilufar, 34, is a designer who remembers life before smartphones. And Sardor, 22, a programmer, has never known a world without them.",
+"Each generation has its own [strengths|kuchli tomonlar]. Farhod is loyal and experienced, and he is respected for his calm way of solving problems. Nilufar values her [work-life balance|ish va hayot muvozanati] and is good at organizing projects. Sardor is extremely [tech-savvy|texnikani yaxshi biladigan], learns quickly and is always keen on trying new tools.",
+"Of course, there are [misunderstandings|tushunmovchiliklar]. Farhod prefers phone calls, while Sardor replies only to messages. But the company has found that teams which mix ages produce better results. ‘The young ones teach us technology,’ says Farhod, ‘and we teach them patience.’ Sardor agrees: ‘Farhod has seen problems that I’m only reading about. Working with him has made me more [realistic|realist].’"],
+uz:["Toshkentdagi gavjum IT kompaniyada uch avlod yonma-yon ishlaydi. 52 yoshli Farhod — menejer, u kareirasini O‘zbekistonda internet hali mavjud bo‘lmagan paytda boshlagan. 34 yoshli Nilufar — dizayner, u smartfonlardan oldingi hayotni eslaydi. 22 yoshli dasturchi Sardor esa ularsiz dunyoni hech qachon ko‘rmagan.","Har bir avlodning o‘z kuchli tomonlari bor. Farhod sodiq va tajribali, muammolarni xotirjam hal qilishi uchun hurmat qilinadi. Nilufar ish va hayot muvozanatini qadrlaydi va loyihalarni tashkil qilishda usta. Sardor texnikani juda yaxshi biladi, tez o‘rganadi va doim yangi vositalarni sinashga qiziqadi.","Albatta, tushunmovchiliklar ham bo‘ladi. Farhod telefon qo‘ng‘iroqlarini afzal ko‘radi, Sardor esa faqat xabarlarga javob beradi. Ammo kompaniya turli yoshdagilarni aralashtirgan jamoalar yaxshiroq natija berishini aniqladi. «Yoshlar bizga texnologiyani o‘rgatadi, — deydi Farhod, — biz esa ularga sabrni o‘rgatamiz.» Sardor ham rozi: «Farhod men endi o‘qiyotgan muammolarni ko‘rgan. U bilan ishlash meni realistroq qildi.»"],
+tf:[["Farhod started working before the internet came to Uzbekistan.",true],["Nilufar is the youngest of the three.",false],["Sardor prefers phone calls.",false],["Mixed-age teams get better results at the company.",true]],
+q:[["What is Farhod respected for?","his calm way of solving problems","his programming skills","his designs"],["What does Nilufar value?","her work-life balance","new technology","phone calls"],["What has Sardor learnt from Farhod?","to be more realistic","to use new tools","to make phone calls"]],
+fw:[["kuchli tomonlar","strengths"],["texnikani yaxshi biladigan","tech-savvy"],["tushunmovchiliklar","misunderstandings"],["realist","realistic"]]},
+W:{t:"A review",uz:"Taqriz (film, kafe, tadbir haqida)",
+err:"The show, *who~which* lasted two hours, was *absolutely good~absolutely brilliant*. The actor playing the father *were~was* fantastic.",
+m:{h:"Review: The Silk Road Festival, Samarkand",l:["Last weekend I went to the Silk Road Festival, which takes place every year in Samarkand.","The highlight for me was the evening concert in the Registan, where musicians from twelve countries performed together. The lighting was stunning.","I was also impressed by the food stalls, although they were a bit too packed for my liking.","The only disappointment was the long queue for tickets.","Overall, I would definitely recommend it to anyone who loves music and culture."]},
+ph:["… , which / who …","The highlight for me was …","I was really impressed by …","I wasn’t so keen on …","The only disappointment was …","Overall, I would (definitely) recommend it to …"],
+task:"Siz yaqinda ko‘rgan film, borgan kafe yoki tadbir haqida 140–190 so‘zlik taqriz yozing. Yaxshi va yomon tomonlarini ayting, tavsiya bering.",min:140,max:190,
+chk:[["Relative clause (who / which / where)","\\b(who|which|where|whose)\\b"],["Taassurot (impressed / keen on)","(impressed|keen on|highlight|disappoint)"],["Tavsiya (recommend)","recommend"],["Overall / To sum up","(overall|to sum up|all in all)"]]}},
+
+9:{R:{t:"When the sun never sets",
+p:["Imagine a summer where it never gets dark. In northern Norway, the sun doesn’t set for about two months, a [phenomenon|hodisa] known as the midnight sun. Children play football at midnight, and many people find it hard to sleep. ‘When I first moved here from Tashkent, I didn’t sleep a wink for a week,’ says Aziza, a nurse in Tromsø.",
+"Winter is the complete [opposite|teskarisi]. During the ‘polar night’, the sun doesn’t rise at all. You might expect people to stay indoors and feel depressed, but most locals don’t. They wrap up warm, go skiing under [artificial|sun’iy] lights and meet friends in cosy cafés. ‘The darkness is actually quite magical,’ Aziza says.",
+"Over the years, Aziza has got used to the [extreme|keskin, o‘ta] seasons. In summer she sleeps with a thick mask and [blackout|yorug‘lik o‘tkazmaydigan] curtains, and in winter she uses a special lamp in the morning. ‘At home in Uzbekistan, I used to get up at the crack of dawn,’ she laughs. ‘Here, I’ve learnt to listen to my body instead of the sun.’"],
+uz:["Hech qachon qorong‘i tushmaydigan yozni tasavvur qiling. Norvegiya shimolida quyosh taxminan ikki oy botmaydi — bu hodisa «yarim tun quyoshi» deb ataladi. Bolalar yarim tunda futbol o‘ynaydi, ko‘pchilik esa uxlashga qiynaladi. «Toshkentdan bu yerga birinchi ko‘chib kelganimda, bir hafta umuman uxlamadim», — deydi Tromsyodagi hamshira Aziza.","Qish esa butunlay teskarisi. «Qutb tuni» davomida quyosh umuman chiqmaydi. Odamlar uyda qolib, tushkunlikka tushadi deb kutishingiz mumkin, lekin mahalliy aholining ko‘pchiligi bunday emas. Ular issiq kiyinib, sun’iy chiroqlar ostida chang‘i uchadi va shinam kafelarda do‘stlari bilan uchrashadi. «Qorong‘ilik aslida ancha sehrli», — deydi Aziza.","Yillar davomida Aziza keskin fasllarga ko‘nikib qoldi. Yozda u qalin niqob va yorug‘lik o‘tkazmaydigan pardalar bilan uxlaydi, qishda esa ertalab maxsus chiroqdan foydalanadi. «Uyda, O‘zbekistonda, tong saharda turardim, — kuladi u. — Bu yerda esa quyoshga emas, tanamga quloq solishni o‘rgandim.»"],
+tf:[["In northern Norway the sun doesn’t set for about two months in summer.",true],["Aziza slept very well during her first week.",false],["Most locals stay at home during the polar night.",false],["Aziza used to get up very early in Uzbekistan.",true]],
+q:[["What do locals do during the polar night?","go skiing and meet friends","sleep all day","travel abroad"],["What does Aziza use in winter?","a special lamp","earplugs","blackout curtains only"],["What has Aziza learnt?","to listen to her body","to sleep in the day","to love the sun"]],
+fw:[["hodisa","phenomenon"],["sun’iy","artificial"],["teskarisi","opposite"],["keskin, o‘ta","extreme"]]},
+W:{t:"A report",uz:"Hisobot (report)",
+err:"*The aim of this report are~The aim of this report is* to describe the nightlife in our city. *Most of people~Most people* go out at the weekend. There *is~are* many cafés in the centre.",
+m:{h:"Report: Evening activities for young people in our town",l:["Introduction: The aim of this report is to describe what young people can do in the evenings and to suggest improvements.","Current situation: Most young people meet in cafés in the city centre. However, there are very few places that stay open after 11 p.m.","Problems: Many students said that the sports centre closes too early and that public transport stops at 10 p.m.","Recommendations: I would recommend opening the sports centre until midnight and running buses later at weekends.","Conclusion: These changes would give young people safer and healthier ways to spend their evenings."]},
+ph:["The aim of this report is to …","Introduction / Current situation / Recommendations / Conclusion","Most / Many / A few people said that …","However, …","I would recommend + -ing …","It would be a good idea to …"],
+task:"Shahringizdagi kechki dam olish imkoniyatlari haqida 150–200 so‘zlik hisobot yozing. Sarlavhalardan foydalaning: Introduction, Current situation, Recommendations, Conclusion.",min:150,max:200,
+chk:[["Maqsad (The aim of this report)","aim of this report"],["Sarlavhalar (Introduction / Conclusion)","(introduction|conclusion)"],["Tavsiya (recommend / suggest)","(recommend|suggest|good idea)"],["Kvantifikator (most / many / few)","\\b(most|many|few|several|some)\\b"]]}},
+
+10:{R:{t:"Why do we laugh?",
+p:["Humans laugh around eighteen times a day, but scientists still argue about why we do it. One popular theory says that we laugh at [surprise|kutilmagan narsa]. A good joke leads us in one direction and then suddenly changes course in the punchline. Our brain has to shift quickly, and the [result|natija] is laughter.",
+"Interestingly, most laughter has nothing to do with jokes. Researchers who [observed|kuzatmoq] people in cafés and shopping centres found that only about 15% of laughs followed something funny. The rest came after ordinary comments like ‘See you later!’. This suggests that laughter is mainly a [social|ijtimoiy] signal: it shows that we are friendly and relaxed.",
+"That is why we laugh thirty times more often when we are with other people than when we are alone. It also explains why humour is so [personal|shaxsiy]. A sketch that one person finds hilarious may seem pointless or even irritating to someone else. Unless you share the same experiences, you may not ‘get’ the joke – even if you understand every [word|so‘z]."],
+uz:["Odamlar kuniga taxminan o‘n sakkiz marta kuladi, ammo olimlar hanuz nima uchun kulishimiz haqida bahslashadi. Mashhur nazariyalardan biri biz kutilmagan narsaga kulamiz, deydi. Yaxshi latifa bizni bir yo‘nalishga olib boradi va yakunda to‘satdan yo‘nalishini o‘zgartiradi. Miyamiz tezda moslashishi kerak — natija esa kulgi.","Qizig‘i shundaki, kulgining aksariyati latifalarga aloqador emas. Kafe va savdo markazlarida odamlarni kuzatgan tadqiqotchilar kulgilarning atigi 15% ga yaqini kulgili narsadan keyin kelganini aniqladi. Qolganlari «Keyin ko‘rishguncha!» kabi oddiy gaplardan keyin bo‘lgan. Bu kulgi asosan ijtimoiy signal ekanini ko‘rsatadi: u do‘stona va xotirjam ekanimizni bildiradi.","Shuning uchun biz boshqalar bilan birga bo‘lganimizda yolg‘izlikdagidan o‘ttiz marta ko‘proq kulamiz. Bu, shuningdek, hazil nega bunchalik shaxsiy ekanini tushuntiradi. Bir kishiga juda kulgili tuyulgan sahna boshqasiga ma’nosiz yoki hatto asabga tegadigan tuyulishi mumkin. Agar tajribangiz umumiy bo‘lmasa, har bir so‘zini tushunsangiz ham, latifani «tushunmasligingiz» mumkin."],
+tf:[["People laugh about eighteen times a day.",true],["Most laughter comes after jokes.",false],["We laugh more when we are alone.",false],["Different people can find the same sketch funny or irritating.",true]],
+q:[["According to one theory, why do we laugh at jokes?","because of the surprise in the punchline","because jokes are long","because we are tired"],["What did researchers discover in cafés?","Only about 15% of laughs followed something funny.","People never laughed.","Most people told jokes."],["What is laughter mainly, according to the text?","a social signal","a sign of tiredness","a language skill"]],
+fw:[["kuzatmoq","observed"],["ijtimoiy","social"],["natija","result"],["shaxsiy","personal"]]},
+W:{t:"A detailed description of a scene",uz:"Manzarani batafsil tasvirlash",
+err:"In the corner there *is sitting~is* an old man *wears~wearing* a *blue long~long blue* coat. He *look~looks* tired.",
+m:{h:"Chorsu Bazaar at sunrise",l:["The huge blue dome of Chorsu Bazaar glows softly in the early morning light.","Underneath it, rows of colourful stalls are piled high with round golden bread, shiny red pomegranates and sacks of bright yellow spices.","In the corner, a cheerful old woman in a floral-patterned scarf is pouring green tea for the first customers.","The air is full of the warm, sweet smell of fresh non and the clatter of carts.","Somewhere behind me, two traders are laughing loudly as they argue about prices."]},
+ph:["In the foreground / background, …","In the corner / On the left / Underneath …","Sifatlar tartibi: fikr → o‘lcham → yosh → rang → material","The air is full of …","Five senses: see, hear, smell, taste, feel","Present continuous: … is pouring / are laughing"],
+task:"O‘zingizga tanish joyni (bozor, park, to‘y, oshxona) 120–170 so‘zda batafsil tasvirlang. Kamida 3 ta sezgidan (ko‘rish, eshitish, hid) foydalaning.",min:120,max:170,
+chk:[["Joy iboralari (in the corner / on the left / behind)","(in the corner|on the (left|right)|behind|in the (fore|back)ground|underneath|next to)"],["Present continuous (is/are + -ing)","\\b(is|are)\\s+\\w+ing\\b"],["Hid yoki tovush (smell / sound / hear)","(smell|sound|hear|noise|clatter)"],["Kamida 2 ta sifat ketma-ket","\\b(old|new|big|small|huge|tiny|beautiful|lovely|bright|dark|round|long|short|red|blue|green|yellow|white|black|golden|wooden|cheerful)\\s+(old|new|big|small|round|long|red|blue|green|yellow|white|black|golden|wooden|silk|cotton|leather)\\b"]]}},
+
+11:{R:{t:"The rise of ‘news snacking’",
+p:["How do you get your news? If you are under thirty, the answer is probably ‘a few minutes at a time, on my phone’. A recent survey found that young people now ‘snack’ on news, checking headlines while they wait for the bus or during a commercial break, rather than reading a newspaper from start to finish.",
+"Media experts have mixed feelings about this [trend|tendensiya]. On the one hand, young people are more [informed|xabardor] than ever before; they hear about events within seconds. On the other hand, short articles and listicles rarely give in-depth [analysis|tahlil]. One journalist warned that ‘people know a little about everything, but not much about anything’.",
+"Another concern is that bad news spreads faster than good news. Stories about [conflict|nizo] and violence attract more clicks, so some websites focus on them. As a result, many readers say they feel stressed after checking the news. In response, several ‘positive news’ sites have appeared. Their editors insist that they are not ignoring problems; they simply want to report on [solutions|yechimlar] too."],
+uz:["Yangiliklarni qanday olasiz? Agar o‘ttiz yoshdan kichik bo‘lsangiz, javob, ehtimol, «bir necha daqiqadan, telefonimda» bo‘ladi. Yaqindagi so‘rovnoma yoshlar endi gazetani boshidan oxirigacha o‘qish o‘rniga, avtobus kutayotganda yoki reklama tanaffusida sarlavhalarni ko‘zdan kechirib, yangiliklarni «tamaddi» qilishini aniqladi.","Media mutaxassislari bu tendensiyaga turlicha qaraydi. Bir tomondan, yoshlar har qachongidan ham xabardorroq; ular voqealar haqida soniyalar ichida eshitadi. Boshqa tomondan, qisqa maqolalar va ro‘yxat-maqolalar kamdan-kam chuqur tahlil beradi. Bir jurnalist «odamlar hamma narsa haqida ozgina biladi, lekin hech narsa haqida ko‘p bilmaydi» deb ogohlantirdi.","Yana bir xavotir — yomon yangiliklar yaxshilariga qaraganda tezroq tarqaladi. Nizo va zo‘ravonlik haqidagi xabarlar ko‘proq bosiladi, shuning uchun ba’zi saytlar asosan ularga e’tibor qaratadi. Natijada ko‘plab o‘quvchilar yangiliklarni ko‘rgandan keyin o‘zini asabiy his qilishini aytadi. Bunga javoban bir nechta «ijobiy yangiliklar» saytlari paydo bo‘ldi. Ularning muharrirlari muammolarni e’tiborsiz qoldirmayotganini, shunchaki yechimlar haqida ham xabar berishni istashlarini ta’kidlaydi."],
+tf:[["Young people usually read newspapers from start to finish.",false],["Experts all agree that news snacking is a good thing.",false],["Bad news often spreads faster than good news.",true],["Positive news sites say they ignore problems.",false]],
+q:[["When do young people often check the news?","while waiting for the bus","only in the evening","at the weekend"],["What is a disadvantage of short articles?","They rarely give in-depth analysis.","They are too expensive.","They are hard to find."],["Why do some websites focus on bad news?","It attracts more clicks.","It is more reliable.","Readers ask for it."]],
+fw:[["xabardor","informed"],["tahlil","analysis"],["yechimlar","solutions"],["tendensiya","trend"]]},
+W:{t:"An opinion essay in a formal style",uz:"Rasmiy uslubdagi fikr-esse",
+err:"*I think that internet news is kinda bad.~It could be argued that internet news is less reliable.* Many people *says~say* that newspapers are old-fashioned. *Lots of~Many* young people *don’t~do not* buy them.",
+m:{h:"Has the internet improved the way we get news?",l:["It is widely believed that the internet has completely transformed the news industry.","Firstly, online news is fast and free. Readers can find out about events as soon as they happen, wherever they are.","Furthermore, social media enables ordinary people to report what they see, which can make news more democratic.","However, it could be argued that online news is often less reliable, as it is not always checked by professional journalists.","In conclusion, although the internet has made news more accessible, readers need to choose their sources carefully."]},
+ph:["It is widely believed that …","It could be argued that …","Firstly, … Furthermore, …","However, …","Although …, …","In conclusion, … (qisqartmalarsiz: do not, it is)"],
+task:"“Bolalar uchun yangiliklarni ijtimoiy tarmoqdan o‘qish zararli” mavzusida 180–240 so‘zlik rasmiy esse yozing. Qisqartmalar (don’t, it’s) ishlatmang.",min:180,max:240,
+chk:[["Rasmiy ibora (It is widely believed / It could be argued)","(widely believed|could be argued|it is often said)"],["Bog‘lovchilar (Firstly / Furthermore)","(firstly|furthermore|moreover|in addition)"],["Reporting verb (claim / suggest / argue)","\\b(claim|suggest|argu|believ|insist|admit)(e|es|ed|s|d)?\\b"],["Qisqartmalar yo‘q","^(?![\\s\\S]*\\b\\w+(n't|n’t|'s|’s|'re|’re|'ll|’ll|'ve|’ve)\\b)"]]}},
+
+12:{R:{t:"What do we regret most?",
+p:["Psychologists who study regret have found something surprising. In the short term, we regret things we did: an angry message, an expensive purchase, a bad decision. But in the long term, we [mostly|asosan] regret the things we didn’t do. ‘If only I had travelled more,’ people say, or ‘I wish I had spent more time with my parents.’",
+"One study asked people over seventy to name their biggest [regret|afsus]. The most common answers were not related to money or careers. Instead, they were about [relationships|munosabatlar]: not making up after a row, losing touch with old friends and not telling people they loved them. Education came second: many wished they had studied harder or [taken up|boshlamoq] a new skill.",
+"The good news is that regret can be useful. It shows us what really matters, and it can [encourage|undamoq] us to change. As one 82-year-old put it: ‘If I could give my younger self one piece of advice, I would say: don’t wait for the perfect moment. Call your sister, learn the guitar, go to Samarkand. If you don’t, you’ll [wonder|o‘ylab qolmoq] what might have happened.’"],
+uz:["Afsuslanishni o‘rganuvchi psixologlar hayratlanarli narsani aniqlashdi. Qisqa muddatda biz qilgan ishlarimizdan afsuslanamiz: jahl bilan yozilgan xabar, qimmat xarid, noto‘g‘ri qaror. Ammo uzoq muddatda asosan qilmagan ishlarimizdan afsuslanamiz. «Qani endi ko‘proq sayohat qilgan bo‘lsam», deydi odamlar yoki «Ota-onam bilan ko‘proq vaqt o‘tkazgan bo‘lsam edi».","Bir tadqiqotda yetmish yoshdan oshganlardan eng katta afsuslarini aytish so‘raldi. Eng ko‘p uchragan javoblar pul yoki kasbga emas, balki munosabatlarga tegishli edi: janjaldan keyin yarashmaslik, eski do‘stlar bilan aloqani yo‘qotish va yaxshi ko‘rgan odamlariga buni aytmaslik. Ikkinchi o‘rinda ta’lim turardi: ko‘pchilik qattiqroq o‘qishni yoki yangi ko‘nikma boshlashni istagan bo‘lardi.","Yaxshi xabar shuki, afsus foydali bo‘lishi mumkin. U bizga nima haqiqatan muhimligini ko‘rsatadi va o‘zgarishga undashi mumkin. 82 yoshli bir kishi aytganidek: «Agar yosh o‘zimga bitta maslahat bera olsam, shunday derdim: mukammal paytni kutma. Singlingga qo‘ng‘iroq qil, gitara o‘rgan, Samarqandga bor. Aks holda, nima bo‘lishi mumkin edi deb o‘ylab qolasan.»"],
+tf:[["In the long term, people mostly regret things they didn’t do.",true],["Older people’s biggest regrets were about money.",false],["Education was the second most common regret.",true],["The writer thinks regret is always useless.",false]],
+q:[["Which is an example of a short-term regret?","sending an angry message","not travelling more","losing touch with friends"],["What were the most common regrets about?","relationships","careers","money"],["What is the 82-year-old’s advice?","Don’t wait for the perfect moment.","Always save money.","Never make decisions quickly."]],
+fw:[["afsus","regret"],["munosabatlar","relationships"],["undamoq","encourage"],["asosan","mostly"]]},
+W:{t:"A biography",uz:"Biografiya (tarjimai hol)",
+err:"Alisher Navoiy *was born on~was born in* 1441 in Herat. He *has written~wrote* many poems in Chagatai. If he *didn’t write~hadn’t written* in Turkic, the language *wouldn’t develop~wouldn’t have developed* so much.",
+m:{h:"Mirzo Ulug‘bek (1394–1449)",l:["Mirzo Ulug‘bek was born in 1394 in Sultaniyeh, Persia, and was brought up at the court of his grandfather, Amir Temur.","From an early age, he was fascinated by mathematics and the stars.","In 1409, at the age of fifteen, he became ruler of Samarkand, where he built a famous madrasa and, later, a huge observatory.","His star catalogue, which described more than 1,000 stars, was one of the most accurate of its time.","Sadly, he was killed in 1449. If he had lived longer, he might have made even more discoveries.","Today, he is renowned as one of the greatest astronomers in history."]},
+ph:["… was born in (yil / shahar) / on (sana)","was brought up by / in …","At the age of …, …","In (year), he/she …","Later, … / Eventually, …","If he/she had …, he/she would have …","Today, he/she is renowned as …"],
+task:"O‘zingiz hurmat qiladigan mashhur shaxs yoki oila a’zongiz haqida 150–200 so‘zlik biografiya yozing. Muhim sanalar va hayotiy voqealarni xronologik tartibda bering.",min:150,max:200,
+chk:[["Tug‘ilgan joy/yil (was born)","was born"],["Yillar (masalan 1990)","\\b(1[0-9]{3}|20[0-9]{2})\\b"],["Past simple fe’llar (became / moved / studied)","\\b(became|moved|studied|started|won|wrote|married|went|worked|built|died)\\b"],["Xayoliy holat (If … had … would have)","\\bif\\b[^.]*\\bhad\\b[^.]*\\b(would|might|could)\\b|\\bwish\\b"]]}}
+};
+
+</script>
+<script>
+{
+const COLORS=['#2f6fdc','#7c4dff','#0f8a6a','#d35400','#c2185b','#00838f','#b8860b','#5e35b1','#2e7d32','#e65100','#1565c0','#ad1457'];
+let S={name:'',done:{}};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem('navB2')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('navB2',JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>s.toLowerCase().replace(/[’‘`]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();
+function rng(seed){return()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646}}
+function shuf(a,r){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.9;speechSynthesis.speak(u)}catch(e){}}
+
+// build per-unit task model
+UNITS.forEach((u,i)=>{
+  u.c=COLORS[i];
+  u.words=u.W.split(';').map(x=>{const [en,uz]=x.split('|');return{en,uz}});
+  const r=rng(u.n*97+13);
+  u.mcq=shuf(u.words,r).slice(0,8).map(w=>{const others=shuf(u.words.filter(x=>x!==w),r).slice(0,2);return{p:w.uz,o:shuf([w.en,...others.map(o=>o.en)],r),a:w.en}});
+  u.typ=shuf(u.words.filter(w=>w.en.length<=16&&!/[\/(]/.test(w.en)),r).slice(0,6);
+  u.gap=u.G.map(([s,a])=>{const others=shuf(u.G.filter(g=>g[1]!==a).map(g=>g[1]),r).slice(0,2);return{s,a,o:shuf([a,...others],r)}});
+  u.gr.forEach(g=>g.mm=g.m.map(([p,...o])=>({p,a:o[0],o:shuf(o,r)})));
+  u.bb=u.b.map(([uz,en])=>({uz,en,t:shuf(en.split(' '),r)}));
+  // tasks: id -> number of items
+  u.tasks={match:u.words.length,mc:u.mcq.length,type:u.typ.length,gap:u.gap.length,g0:u.gr[0].f.length+u.gr[0].m.length,g1:u.gr[1].f.length+u.gr[1].m.length,rtf:4,rq:3,rfw:4,werr:1,wtext:1,build:u.bb.length};
+});
+const TOTAL=UNITS.length*12;
+const k=(u,t,i)=>`${u.n}-${t}-${i}`;
+const isDone=(u,t,i)=>!!S.done[k(u,t,i)];
+const taskDone=(u,t)=>{for(let i=0;i<u.tasks[t];i++)if(!isDone(u,t,i))return false;return true};
+const unitCount=u=>Object.keys(u.tasks).filter(t=>taskDone(u,t)).length;
+const allCount=()=>UNITS.reduce((s,u)=>s+unitCount(u),0);
+function mark(u,t,i){S.done[k(u,t,i)]=1;save();refreshStatus(u)}
+
+const head=document.getElementById('head'),app=document.getElementById('app');
+
+function home(){
+  head.innerHTML=`<h1>Ingliz tili · Uy vazifasi <small>Homework</small></h1><p>Navigate B2 Upper-intermediate · 12 unit · Lug‘at, o‘qish, grammatika va yozuv</p>`;
+  const c=allCount();
+  app.innerHTML=`<div class="card"><label class="h" for="nm">Ismingiz / Your name</label>
+  <input type="text" id="nm" placeholder="Ismingizni yozing" value="${esc(S.name)}">
+  <div class="bar"><i style="width:${c/TOTAL*100}%"></i></div><div class="meta">Umumiy natija: ${c} / ${TOTAL} topshiriq</div></div>`+
+  UNITS.map(u=>{const d=unitCount(u);return`<button class="card unit" style="--c:${u.c}" data-u="${u.n}">
+  <div class="k">${u.n}-UNIT · Unit ${u.n}</div><h2>${esc(u.t)} <span>${esc(u.uz)}</span></h2>
+  <div class="tp"><b>Lug‘at:</b> ${esc(u.v)}<br><b>Grammatika:</b> ${esc(u.g)}<br><b>O‘qish:</b> ${esc(RW[u.n].R.t)} · <b>Yozuv:</b> ${esc(RW[u.n].W.t)}</div>
+  <div class="bar"><i style="width:${d/12*100}%"></i></div><div class="meta">${d} / 12 topshiriq bajarildi</div></button>`}).join('')+
+  `<div style="text-align:center"><button class="reset" id="rs">Natijalarni tozalash</button></div>`;
+  document.getElementById('nm').oninput=e=>{S.name=e.target.value;save()};
+  app.querySelectorAll('.unit').forEach(b=>b.onclick=()=>location.hash='u'+b.dataset.u+'-vocab');
+  const rs=document.getElementById('rs');let armed=false;
+  rs.onclick=()=>{if(!armed){armed=true;rs.textContent='Ishonchingiz komilmi? Yana bir marta bosing';return}S.done={};save();home()};
+}
+
+const st=(u,t)=>{const n=u.tasks[t];let d=0;for(let i=0;i<n;i++)if(isDone(u,t,i))d++;return`<span class="st ${d===n?'done':''}" data-st="${u.n}-${t}">${d===n?'✓ Bajarildi':d+' / '+n}</span>`};
+function refreshStatus(u){
+  document.querySelectorAll('[data-st]').forEach(el=>{const [n,t]=el.dataset.st.split('-');const uu=UNITS[n-1];const tmp=document.createElement('div');tmp.innerHTML=st(uu,t);el.replaceWith(tmp.firstChild)});
+  const m=document.getElementById('uprog');if(m)m.textContent=`${unitCount(u)} / 12 topshiriq bajarildi`;
+}
+
+function unit(n,tab){
+  const u=UNITS[n-1];if(!u){home();return}
+  head.innerHTML=`<div class="nav"><button class="pill" id="bk">← Barcha unitlar</button>${n>1?`<button class="pill" data-go="${n-1}">‹ ${n-1}-unit</button>`:''}${n<12?`<button class="pill" data-go="${n+1}">${n+1}-unit ›</button>`:''}</div>
+  <h1>${n}-unit · ${esc(u.t)} <span class="uz">${esc(u.uz)}</span></h1><p id="uprog">${unitCount(u)} / 12 topshiriq bajarildi</p>`;
+  head.parentElement.style.background=u.c;
+  document.getElementById('bk').onclick=()=>location.hash='';
+  head.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>location.hash='u'+b.dataset.go+'-'+tab);
+  app.innerHTML=`<div class="tabs"><button class="tab ${tab==='vocab'?'on':''}" data-t="vocab">Lug‘at</button><button class="tab ${tab==='reading'?'on':''}" data-t="reading">O‘qish</button><button class="tab ${tab==='grammar'?'on':''}" data-t="grammar">Grammatika</button><button class="tab ${tab==='writing'?'on':''}" data-t="writing">Yozuv</button></div><div id="body"></div>`;
+  app.querySelectorAll('.tab').forEach(b=>b.onclick=()=>location.hash='u'+n+'-'+b.dataset.t);
+  const body=document.getElementById('body');
+  ({vocab,reading,grammar,writing})[tab](u,body);
+  window.scrollTo(0,0);
+}
+
+function fillQ(u,t,i,prompt,answers,hint){
+  const done=isDone(u,t,i);const alts=answers.split('|');
+  return`<div class="q" data-fill="${t}|${i}"><div class="p"><b>${i+1}</b>${esc(prompt)}</div>
+  <div class="row"><input type="text" aria-label="Javob" placeholder="Javob" autocomplete="off" autocapitalize="off" spellcheck="false" class="${done?'ok':''}" value="${done?esc(alts[0]):''}">
+  <button class="btn">Tekshirish</button><button class="btn o">Yordam</button></div><div class="fb ${done?'g':''}">${done?'✓ To‘g‘ri':''}</div></div>`;
+}
+function mcQ(u,t,i,num,prompt,opts,ans){
+  const done=isDone(u,t,i);
+  return`<div class="q" data-mc="${t}|${i}" data-a="${esc(ans)}"><div class="p"><b>${num}</b>${esc(prompt)}</div><div class="opts">${opts.map(o=>`<button class="opt ${done&&o===ans?'ok':''}">${esc(o)}</button>`).join('')}</div></div>`;
+}
+function bind(u,root,answersFor){
+  root.querySelectorAll('[data-fill]').forEach(q=>{
+    const [t,i]=q.dataset.fill.split('|');const {ans,hint}=answersFor(t,+i);
+    const inp=q.querySelector('input'),fb=q.querySelector('.fb'),[chk,help]=q.querySelectorAll('button');
+    const check=()=>{const v=norm(inp.value);if(!v)return;
+      const okk=ans.split('|').some(a=>norm(a)===v);
+      inp.classList.toggle('ok',okk);inp.classList.toggle('bad',!okk);
+      fb.className='fb '+(okk?'g':'r');fb.textContent=okk?'✓ To‘g‘ri':'✗ Yana urinib ko‘ring';
+      if(okk)mark(u,t,+i)};
+    chk.onclick=check;inp.onkeydown=e=>{if(e.key==='Enter')check()};
+    help.onclick=()=>{fb.className='fb';fb.innerHTML=(hint?esc(hint)+' → ':'')+'Javob: <b>'+esc(ans.split('|')[0])+'</b>'};
+  });
+  root.querySelectorAll('[data-mc]').forEach(q=>{
+    const [t,i]=q.dataset.mc.split('|');const a=q.dataset.a;
+    q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      q.querySelectorAll('.opt').forEach(x=>x.classList.remove('bad'));
+      if(b.textContent===a){b.classList.add('ok');mark(u,t,+i)}else b.classList.add('bad');
+    });
+  });
+}
+
+function vocab(u,body){
+  const stages=[];for(let i=0;i<u.words.length;i+=6)stages.push(i);
+  body.innerHTML=`<div class="card"><h3>So‘zlar banki</h3><div class="ins">So‘zni bosing — talaffuzini eshitasiz.</div>
+  <div class="bank">${u.words.map(w=>`<button class="w" data-say="${esc(w.en)}"><b>${esc(w.en)}</b><span>${esc(w.uz)}</span></button>`).join('')}</div></div>
+  <div class="card"><h3>So‘z va ma’nosini juftlang ${st(u,'match')}</h3><div class="ins">Chapdan inglizcha so‘zni, o‘ngdan uning ma’nosini bosing. ${stages.length} bosqich.</div>
+  ${stages.map((s,si)=>{const r=rng(u.n*31+si);const grp=u.words.slice(s,s+6).map((w,j)=>({...w,i:s+j}));
+    return`<div class="stage">${si+1}-bosqich / ${stages.length}</div><div class="mt" data-stage><div>${shuf(grp,r).map(w=>`<button class="mb ${isDone(u,'match',w.i)?'ok':''}" data-l="${w.i}">${esc(w.en)}</button>`).join('')}</div><div>${shuf(grp,r).map(w=>`<button class="mb ${isDone(u,'match',w.i)?'ok':''}" data-r="${w.i}">${esc(w.uz)}</button>`).join('')}</div></div>`}).join('')}</div>
+  <div class="card"><h3>O‘zbekchaga mos so‘z ${st(u,'mc')}</h3><div class="ins">To‘g‘ri inglizcha so‘zni tanlang.</div>
+  ${u.mcq.map((q,i)=>mcQ(u,'mc',i,i+1,q.p,q.o,q.a)).join('')}</div>
+  <div class="card"><h3>So‘zni yozing ${st(u,'type')}</h3><div class="ins">O‘zbekcha ma’nosiga qarab inglizcha yozing. Qiynalsangiz «Yordam»ni bosing.</div>
+  ${u.typ.map((w,i)=>fillQ(u,'type',i,w.uz,w.en)).join('')}</div>
+  <div class="card"><h3>Kitobdagi gaplar ${st(u,'gap')}</h3><div class="ins">Bo‘sh joyga mos so‘zni tanlang. Gaplar kitobdan olingan.</div>
+  ${u.gap.map((g,i)=>mcQ(u,'gap',i,i+1,g.s,g.o,g.a)).join('')}</div>
+  <button class="btn next" id="nx">Keyingisi: O‘qish →</button>`;
+  body.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say));
+  body.querySelectorAll('[data-stage]').forEach(m=>{let sel=null;
+    m.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{if(b.classList.contains('ok'))return;m.querySelectorAll('[data-l]').forEach(x=>x.classList.remove('sel'));sel=b;b.classList.add('sel');speak(b.textContent)});
+    m.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{if(!sel||b.classList.contains('ok'))return;
+      if(sel.dataset.l===b.dataset.r){sel.classList.remove('sel');sel.classList.add('ok');b.classList.add('ok');mark(u,'match',+b.dataset.r);sel=null}
+      else{b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),600)}});
+  });
+  bind(u,body,(t,i)=>({ans:u.typ[i].en,hint:''}));
+  document.getElementById('nx').onclick=()=>location.hash='u'+u.n+'-reading';
+}
+
+function grammar(u,body){
+  body.innerHTML=u.gr.map((g,gi)=>{const t='g'+gi;const nf=g.f.length;
+    return`<div class="card"><h3>${esc(g.t)} ${st(u,t)}</h3><div class="ins">Qoidani o‘qing, shaklga keltiring, keyin to‘g‘ri gapni tanlang.</div>
+    <div class="rule">${g.r}</div>
+    ${g.f.map((f,i)=>fillQ(u,t,i,f[0],f[1],f[2])).join('')}
+    ${g.mm.map((m,i)=>mcQ(u,t,nf+i,nf+i+1,m.p,m.o,m.a)).join('')}</div>`}).join('')+
+  `<div class="card"><h3>Gap tuzing ${st(u,'build')}</h3><div class="ins">So‘zlarni bosib, to‘g‘ri tartibda gap tuzing.</div>
+  ${u.bb.map((b,i)=>`<div class="q" data-build="${i}"><div class="p"><b>${i+1}</b>${esc(b.uz)}</div>
+  <div class="zone">${isDone(u,'build',i)?b.en.split(' ').map(w=>`<span class="tok">${esc(w)}</span>`).join(''):''}</div>
+  <div class="row" style="margin-bottom:8px">${b.t.map((w,j)=>`<button class="tok ${isDone(u,'build',i)?'used':''}" data-j="${j}">${esc(w)}</button>`).join('')}</div>
+  <div class="row"><button class="btn">Tekshirish</button><button class="btn o">Tozalash</button></div><div class="fb ${isDone(u,'build',i)?'g':''}">${isDone(u,'build',i)?'✓ To‘g‘ri':''}</div></div>`).join('')}</div>
+  <button class="btn next" id="nx">Keyingisi: Yozuv →</button>`;
+  bind(u,body,(t,i)=>{const g=u.gr[+t[1]];return{ans:g.f[i][1],hint:g.f[i][2]}});
+  body.querySelectorAll('[data-build]').forEach(q=>{
+    const i=+q.dataset.build,b=u.bb[i],zone=q.querySelector('.zone'),fb=q.querySelector('.fb');
+    const [chk,clr]=q.querySelectorAll('.btn');
+    q.querySelectorAll('[data-j]').forEach(t=>t.onclick=()=>{if(t.classList.contains('used'))return;t.classList.add('used');
+      const s=document.createElement('button');s.className='tok';s.textContent=t.textContent;s.onclick=()=>{s.remove();t.classList.remove('used')};zone.appendChild(s)});
+    chk.onclick=()=>{const v=[...zone.children].map(x=>x.textContent).join(' ');
+      const okk=norm(v)===norm(b.en);fb.className='fb '+(okk?'g':'r');fb.textContent=okk?'✓ To‘g‘ri':'✗ Tartib noto‘g‘ri, qayta urinib ko‘ring';
+      if(okk){mark(u,'build',i);speak(b.en)}};
+    clr.onclick=()=>{zone.innerHTML='';q.querySelectorAll('[data-j]').forEach(t=>t.classList.remove('used'));fb.textContent=''};
+  });
+  document.getElementById('nx').onclick=()=>location.hash='u'+u.n+'-writing';
+}
+
+const glossHtml=p=>esc(p).replace(/\[([^|\]]+)\|([^\]]+)\]/g,(m,w,t)=>`<button class="gl">${w}<small>(${t})</small></button>`);
+const plain=p=>p.replace(/\[([^|\]]+)\|[^\]]+\]/g,'$1');
+function reading(u,body){
+  const R=RW[u.n].R;
+  body.innerHTML=`<div class="card"><h3>${esc(R.t)}</h3><div class="ins">Matnni o‘qing. Tagiga chizilgan so‘zlarni bosing — tarjimasi chiqadi.</div>
+  <div class="txt">${R.p.map(p=>`<p>${glossHtml(p)}</p>`).join('')}</div>
+  <button class="btn o" id="say">🔊 Matnni tinglash</button>
+  <details><summary>O‘zbekcha tarjima</summary>${R.uz.map(p=>`<p>${esc(p)}</p>`).join('')}</details></div>
+  <div class="card"><h3>True or False? · To‘g‘ri yoki noto‘g‘ri? ${st(u,'rtf')}</h3><div class="ins">Matn bo‘yicha belgilang.</div>
+  ${R.tf.map(([s,v],i)=>{const a=v?'True ✓':'False ✗',done=isDone(u,'rtf',i);return`<div class="q" data-mc="rtf|${i}" data-a="${a}"><div class="p"><b>${i+1}</b>${esc(s)}</div><div class="tf">${['True ✓','False ✗'].map(o=>`<button class="opt ${done&&o===a?'ok':''}">${o}</button>`).join('')}</div></div>`}).join('')}</div>
+  <div class="card"><h3>Savollarga javob bering ${st(u,'rq')}</h3><div class="ins">Matn bo‘yicha javobni tanlang.</div>
+  ${R.q.map(([p,...o],i)=>{const r=rng(u.n*53+i);return mcQ(u,'rq',i,i+1,p,shuf(o,r),o[0])}).join('')}</div>
+  <div class="card"><h3>Matndan so‘zni toping ${st(u,'rfw')}</h3><div class="ins">Matndagi mos so‘z yoki iborani inglizcha yozing.</div>
+  ${R.fw.map(([uz,en],i)=>fillQ(u,'rfw',i,uz,en)).join('')}</div>
+  <button class="btn next" id="nx">Keyingisi: Grammatika →</button>`;
+  body.querySelectorAll('.gl').forEach(b=>b.onclick=()=>{b.classList.toggle('on');speak(b.firstChild.textContent)});
+  const sb=document.getElementById('say');let on=false;
+  sb.onclick=()=>{try{if(on){speechSynthesis.cancel();on=false;sb.textContent='🔊 Matnni tinglash';return}
+    const ut=new SpeechSynthesisUtterance(R.p.map(plain).join(' '));ut.lang='en-GB';ut.rate=.9;ut.onend=()=>{on=false;sb.textContent='🔊 Matnni tinglash'};
+    speechSynthesis.cancel();speechSynthesis.speak(ut);on=true;sb.textContent='⏹ To‘xtatish'}catch(e){}};
+  bind(u,body,(t,i)=>({ans:R.fw[i][1],hint:''}));
+  document.getElementById('nx').onclick=()=>location.hash='u'+u.n+'-grammar';
+}
+function writing(u,body){
+  const W=RW[u.n].W;
+  const segs=[];W.err.replace(/\*([^*~]+)~([^*]+)\*|(\S+)/g,(m,w,f,p)=>{segs.push(p?{w:p}:{w,f});return m});
+  const nErr=segs.filter(x=>x.f).length,eDone=isDone(u,'werr',0);
+  const txt=(S.texts&&S.texts[u.n])||'';
+  body.innerHTML=`<h2 class="wt">${esc(W.t)}<span>${esc(W.uz)}</span></h2>
+  <div class="card"><h3>1-qadam · Xatolarni toping ${st(u,'werr')}</h3><div class="ins">Xato yozilgan so‘z yoki qismlarni bosing (jami ${nErr} ta), keyin «Tekshirish»ni bosing.</div>
+  <div class="errs">${segs.map((x,i)=>`<button class="et" data-i="${i}">${esc(x.w)}${eDone&&x.f?`<span class="fx">→ ${esc(x.f)}</span>`:''}</button>`).join('')}</div>
+  <button class="btn" id="ec">Tekshirish</button><div class="fb" id="ef"></div></div>
+  <div class="card"><h3>2-qadam · Namunani o‘qing</h3><div class="ins">Tuzilish va foydali iboralarga e’tibor bering.</div>
+  <div class="model"><b>${esc(W.m.h)}</b>${W.m.l.map(l=>`<p>${esc(l)}</p>`).join('')}</div>
+  <div class="ph">${W.ph.map(p=>`<span>${esc(p)}</span>`).join('')}</div></div>
+  <div class="card"><h3>3-qadam · Navbat sizda ✍️ ${st(u,'wtext')}</h3><div class="ins">${esc(W.task)}</div>
+  <textarea id="ta" placeholder="Shu yerga ingliz tilida yozing…">${esc(txt)}</textarea>
+  <div class="meta" id="wc"></div><ul class="chk" id="ck"></ul>
+  <button class="btn" id="cp">📋 Nusxa olib, o‘qituvchiga yuborish</button>
+  <div class="meta" id="cpm" style="margin-top:8px">Matningiz shu qurilmada saqlanadi. Tugma ismingiz, matningiz va natijangizni nusxalaydi — keyin uni o‘qituvchingizga yuboring.</div></div>
+  ${u.n<12?`<button class="btn next" id="nx">Keyingi unit: ${u.n+1}-unit →</button>`:`<button class="btn next" id="nx">← Barcha unitlar</button>`}`;
+  body.querySelectorAll('.et').forEach(b=>b.onclick=()=>b.classList.toggle('sel'));
+  document.getElementById('ec').onclick=()=>{const ef=document.getElementById('ef');
+    const sel=[...body.querySelectorAll('.et.sel')].map(b=>+b.dataset.i);
+    const right=segs.map((x,i)=>x.f?i:-1).filter(i=>i>=0);
+    const found=sel.filter(i=>right.includes(i)).length,wrong=sel.length-found;
+    if(found===right.length&&!wrong){ef.className='fb g';ef.textContent='✓ Barakalla! Hamma xatolar topildi.';
+      body.querySelectorAll('.et').forEach(b=>{const x=segs[+b.dataset.i];if(x.f&&!b.querySelector('.fx'))b.insertAdjacentHTML('beforeend',`<span class="fx">→ ${esc(x.f)}</span>`)});mark(u,'werr',0)}
+    else{ef.className='fb r';ef.textContent=`✗ ${found} / ${right.length} ta xato topildi${wrong?`, ${wrong} ta to‘g‘ri so‘z belgilangan`:''}. Qayta urinib ko‘ring.`}};
+  const ta=document.getElementById('ta'),wc=document.getElementById('wc'),ck=document.getElementById('ck');
+  const words=t=>(t.match(/[A-Za-z’'-]+/g)||[]).length;
+  const upd=()=>{const t=ta.value,n=words(t);
+    wc.textContent=`${n} ta so‘z (maqsad: ${W.min}–${W.max})`;
+    ck.innerHTML=`<li class="${n>=W.min?'y':''}">${n>=W.min?'✓':'○'} Kamida ${W.min} ta so‘z</li>`+W.chk.map(([l,r])=>{let ok=false;try{ok=n>0&&new RegExp(r,'im').test(t)}catch(e){}return`<li class="${ok?'y':''}">${ok?'✓':'○'} ${esc(l)}</li>`}).join('');
+    S.texts=S.texts||{};S.texts[u.n]=t;save();
+    if(n>=W.min&&!isDone(u,'wtext',0))mark(u,'wtext',0)};
+  ta.oninput=upd;upd();
+  document.getElementById('cp').onclick=()=>{
+    const out=`Ism: ${S.name||'-'}\n${u.n}-unit · ${u.t} — ${W.t}\nNatija: ${unitCount(u)} / 12 topshiriq\n\n${ta.value}`;
+    const m=document.getElementById('cpm');
+    const fallback=()=>{ta.focus();ta.select();m.textContent='Nusxa olinmadi — matn belgilandi, uni o‘zingiz nusxalang (Ctrl+C).'};
+    try{navigator.clipboard.writeText(out).then(()=>m.textContent='✓ Nusxa olindi! Endi o‘qituvchingizga yuboring.',fallback)}catch(e){fallback()}};
+  document.getElementById('nx').onclick=()=>location.hash=u.n<12?'u'+(u.n+1)+'-vocab':'';
+}
+
+function route(){const m=location.hash.match(/^#u(\d+)-(vocab|reading|grammar|writing)$/);
+  if(m)unit(+m[1],m[2]);else{head.parentElement.style.background='';home();}}
+window.addEventListener('hashchange',route);route();
+}
+</script>
+</body>
+</html>
